@@ -1,0 +1,104 @@
+{
+  "name": "@serenity-js/serenity-js-playwright-ct-react-template",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "source": "./src/index.ts",
+  "types": "./dist/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./serenity": {
+      "import": "./dist/esm/serenity.js",
+      "require": "./dist/cjs/serenity.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "scripts": {
+    "postinstall": "serenity-bdd update",
+    "clean": "rimraf dist target",
+    "build": "npm run build:js && npm run build:css",
+    "build:js": "npm run build:js:esm && npm run build:js:cjs && npm run build:js:cjs-package",
+    "build:js:esm": "tsc --project tsconfig.build.json --outDir dist/esm --module esnext",
+    "build:js:cjs": "tsc --project tsconfig.build.json --outDir dist/cjs --module commonjs",
+    "build:js:cjs-package": "node -e \"require('fs').writeFileSync('dist/cjs/package.json', '{ \\\"type\\\": \\\"commonjs\\\" }')\"",
+    "build:css": "cpy 'src/**/*.css' dist",
+    "test": "failsafe clean test:execute test:report",
+    "test:execute": "playwright test -c playwright-ct.config.ts",
+    "test:report": "serenity-bdd run",
+    "start": "mkdirp target/site/serenity && npx http-server -p 8080 target/site/serenity -s -o",
+    "lint": "eslint --ext ts --config .eslintrc.cjs .",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serenity-js/serenity-js-playwright-ct-react-template.git"
+  },
+  "keywords": [
+    "serenity-js",
+    "bdd",
+    "playwright",
+    "playwright-ct"
+  ],
+  "author": {
+    "name": "Jan Molak",
+    "email": "jan.molak@smartcodeltd.co.uk",
+    "url": "https://janmolak.com"
+  },
+  "homepage": "https://serenity-js.org",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/issues"
+  },
+  "engines": {
+    "node": "^16.13 || ^18.12 || ^20"
+  },
+  "peerDependencies": {
+    "@types/react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@playwright/experimental-ct-react": "^1.36.2",
+    "@serenity-js/assertions": "^3.9.0",
+    "@serenity-js/console-reporter": "^3.9.0",
+    "@serenity-js/core": "^3.9.0",
+    "@serenity-js/cucumber": "^3.9.0",
+    "@serenity-js/playwright": "^3.9.0",
+    "@serenity-js/playwright-test": "^3.9.0",
+    "@serenity-js/rest": "^3.9.0",
+    "@serenity-js/serenity-bdd": "^3.9.0",
+    "@serenity-js/web": "^3.9.0",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
+    "cpy-cli": "^5.0.0",
+    "eslint": "^8.46.0",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unicorn": "^48.0.1",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "http-server": "^14.1.1",
+    "mkdirp": "^3.0.1",
+    "npm-failsafe": "^1.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^5.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "clsx": "^2.0.0"
+  }
+}
