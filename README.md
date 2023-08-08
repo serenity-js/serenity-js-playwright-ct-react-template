@@ -11,7 +11,7 @@
 [![Support Serenity/JS on GitHub](https://img.shields.io/badge/Support-@serenity--js-703EC8?logo=github)](https://github.com/sponsors/serenity-js)
 
 Use this [template repository](https://help.github.com/en/articles/creating-a-repository-from-a-template)
-to get started with testing your React web components using [Serenity/JS](https://serenity-js.org),
+to get started with testing your [React](https://react.dev/) components using [Serenity/JS](https://serenity-js.org),
 [Playwright](https://playwright.dev/) and [Playwright Component Test](https://playwright.dev/docs/test-components).
 
 Learn more:
