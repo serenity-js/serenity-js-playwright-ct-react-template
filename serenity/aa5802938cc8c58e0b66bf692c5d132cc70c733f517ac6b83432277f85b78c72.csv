@@ -1,0 +1,7 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Dropdown","shows the placeholder when no option is selected yet","SUCCESS","2023-08-08T21:23:51.628Z[Etc/UTC]","0.0","2.34"
+"Dropdown","shows the available options when the menu is expanded","SUCCESS","2023-08-08T21:23:53.969Z[Etc/UTC]","0.0","0.43"
+"Dropdown","selects the desired options","SUCCESS","2023-08-08T21:23:54.399Z[Etc/UTC]","0.0","0.85"
+"Dropdown","triggers onChange with selected options","SUCCESS","2023-08-08T21:23:55.258Z[Etc/UTC]","0.0","0.88"
+"Dropdown","allows for selected options to be deselected","SUCCESS","2023-08-08T21:23:56.141Z[Etc/UTC]","0.0","1.42"
+"Dropdown","goes back to showing the placeholder when all the selected options get deselected","SUCCESS","2023-08-08T21:23:57.573Z[Etc/UTC]","0.0","1.16"

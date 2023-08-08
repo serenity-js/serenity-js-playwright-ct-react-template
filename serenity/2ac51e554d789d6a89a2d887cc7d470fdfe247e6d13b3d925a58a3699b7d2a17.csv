@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Dropdown","shows the placeholder when no option is selected yet","SUCCESS","2023-08-08T21:23:51.628Z[Etc/UTC]","0.0","2.34"
+"Dropdown","allows for selected options to be deselected","SUCCESS","2023-08-08T21:23:56.141Z[Etc/UTC]","0.0","1.42"
+"Dropdown","goes back to showing the placeholder when all the selected options get deselected","SUCCESS","2023-08-08T21:23:57.573Z[Etc/UTC]","0.0","1.16"
