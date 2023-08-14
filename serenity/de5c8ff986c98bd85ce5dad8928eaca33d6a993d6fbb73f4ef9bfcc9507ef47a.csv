@@ -1,3 +1,3 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"Dropdown","shows the placeholder when no option is selected yet","SUCCESS","2023-08-11T03:52:26.909Z[Etc/UTC]","0.0","0.67"
-"Dropdown","shows the available options when the menu is expanded","SUCCESS","2023-08-11T03:52:27.585Z[Etc/UTC]","0.0","0.65"
+"Dropdown","shows the placeholder when no option is selected yet","SUCCESS","2023-08-14T22:41:37.37Z[Etc/UTC]","0.0","0.97"
+"Dropdown","shows the available options when the menu is expanded","SUCCESS","2023-08-14T22:41:38.392Z[Etc/UTC]","0.0","0.82"
