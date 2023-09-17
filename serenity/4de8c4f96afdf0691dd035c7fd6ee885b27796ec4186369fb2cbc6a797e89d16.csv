@@ -1,5 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Dropdown","selects the desired options","SUCCESS","2023-09-17T22:49:21.696Z[Etc/UTC]","0.0","1.6"
-"Dropdown","triggers onChange with selected options","SUCCESS","2023-09-17T22:49:23.312Z[Etc/UTC]","0.0","1.82"
-"Dropdown","allows for selected options to be deselected","SUCCESS","2023-09-17T22:49:25.155Z[Etc/UTC]","0.0","2.67"
-"Dropdown","goes back to showing the placeholder when all the selected options get deselected","SUCCESS","2023-09-17T22:49:27.84Z[Etc/UTC]","0.0","2.4"
