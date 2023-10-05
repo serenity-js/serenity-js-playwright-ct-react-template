@@ -19,10 +19,8 @@ export class DropdownComponent {
             .of(this.input());
 
     placeholder = () =>
-        Text.of(
-            PageElement.located(By.css('.dropdown-placeholder'))
-                .of(this.input())
-        );
+        Text.of(this.placeholderElement())
+            .describedAs('placeholder');
 
     private availableOptionsDropdown = () =>
         PageElement.located(By.css('.dropdown-available-options'))
