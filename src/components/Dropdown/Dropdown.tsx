@@ -19,7 +19,7 @@ const RemoveOptionIcon = () => {
     );
 };
 
-export interface DropdownProps {
+export interface DropdownProperties {
     placeholder: string;
     options: Array<DropdownOption>;
     onChange: (selectedOptions: Array<DropdownOption>) => void;
@@ -31,17 +31,17 @@ export interface DropdownOption {
     label: string;
 }
 
-export function Dropdown({ placeholder, options, allowMultiple, onChange }: DropdownProps) {
+export function Dropdown({ placeholder, options, allowMultiple, onChange }: DropdownProperties) {
 
     const [ expandOptionsDropdown, setExpandOptionsDropdown ] = useState(false);
     const [ selectedOptions, setSelectedOptions ] = useState<Array<DropdownOption>>([]);
-    const inputRef = useRef<HTMLDivElement>(null);
+    const inputReference = useRef<HTMLDivElement>(null);
 
     const isSelected = isOneOf(selectedOptions);
 
     useEffect(() => {
         const handler = (event: MouseEvent) => {
-            if (inputRef.current && ! inputRef.current.contains(event.target as unknown as Node)) {
+            if (inputReference.current && ! inputReference.current.contains(event.target as unknown as Node)) {
                 setExpandOptionsDropdown(false);
             }
         }
@@ -90,13 +90,13 @@ export function Dropdown({ placeholder, options, allowMultiple, onChange }: Drop
             <ul className="dropdown-selected-options">
                 { selectedOptions.map((option) => (
                     <li key={ option.value } className="dropdown-selected-option">
-                        { option.label }
+                        <span>{ option.label }</span>
                         { allowMultiple && (
-                        <span
-                            onClick={ event => handleOptionDeselected(event, option) }
-                            className="dropdown-deselect-option">
-                            <RemoveOptionIcon/>
-                        </span>
+                            <span
+                                onClick={ event => handleOptionDeselected(event, option) }
+                                className="dropdown-deselect-option">
+                                <RemoveOptionIcon/>
+                            </span>
                         )}
                     </li>
                 )) }
@@ -106,7 +106,7 @@ export function Dropdown({ placeholder, options, allowMultiple, onChange }: Drop
 
     return (
         <div className={ clsx('dropdown-widget', expandOptionsDropdown && 'dropdown-expanded') }>
-            <div ref={inputRef} onClick={ handleExpandMenu } className='dropdown-input'>
+            <div ref={inputReference} onClick={ handleExpandMenu } className='dropdown-input'>
                 { renderSelectedOptionsOrPlaceholder() }
                 <div className="dropdown-expand-icon">
                     <ExpandOptionsIcon/>

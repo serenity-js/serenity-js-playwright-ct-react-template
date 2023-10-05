@@ -2,7 +2,7 @@ import React from 'react'
 
 import { test as componentTest } from '@playwright/experimental-ct-react';
 import { useBase } from '@serenity-js/playwright-test';
-import { PageElement, Text } from '@serenity-js/web';
+import { PageElement } from '@serenity-js/web';
 
 import { Dropdown, DropdownOption } from './Dropdown';
 import { DropdownComponent } from './Dropdown.serenity';
@@ -37,7 +37,7 @@ describe('Dropdown', () => {
 
         await actor.attemptsTo(
             Ensure.eventually(
-                Text.of(dropdownComponent.placeholder()),
+                dropdownComponent.placeholder(),
                 equals(placeholder),
             ),
         )
@@ -54,7 +54,7 @@ describe('Dropdown', () => {
             dropdownComponent.open(),
 
             Ensure.eventually(
-                Text.ofAll(dropdownComponent.availableOptions()),
+                dropdownComponent.availableOptions(),
                 equals(labels),
             ),
         )
@@ -73,7 +73,7 @@ describe('Dropdown', () => {
                 'Third'
             ]),
 
-            Ensure.that(Text.ofAll(dropdownComponent.selectedOptions()), equals([
+            Ensure.that(dropdownComponent.selectedElements(), equals([
                 'First',
                 'Third',
             ])),
@@ -123,7 +123,7 @@ describe('Dropdown', () => {
                 'First',
             ]),
 
-            Ensure.that(Text.ofAll(dropdownComponent.selectedOptions()), equals([
+            Ensure.that(dropdownComponent.selectedElements(), equals([
                 'Third',
                 'Second',
             ])),
@@ -152,9 +152,9 @@ describe('Dropdown', () => {
                 'Second',
             ]),
 
-            Ensure.that(dropdownComponent.selectedOptions().count(), equals(0)),
+            Ensure.that(dropdownComponent.selectedElements().length, equals(0)),
             Ensure.that(
-                Text.of(dropdownComponent.placeholder()),
+                dropdownComponent.placeholder(),
                 equals(placeholder),
             ),
         );

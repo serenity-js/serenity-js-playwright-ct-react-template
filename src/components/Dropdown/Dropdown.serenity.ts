@@ -1,4 +1,4 @@
-import { contain, Ensure, includes, not } from '@serenity-js/assertions';
+import { contain, containAtLeastOneItemThat, Ensure, includes, not, startsWith } from '@serenity-js/assertions';
 import { Answerable, Check, d, List, QuestionAdapter, Task, Wait } from '@serenity-js/core';
 import { By, Click, CssClasses, isVisible, PageElement, PageElements, Text } from '@serenity-js/web';
 
@@ -14,32 +14,44 @@ export class DropdownComponent {
             .describedAs('dropdown input')
             .of(this.rootElement);
 
-    placeholder = () =>
+    private placeholderElement = () =>
         PageElement.located(By.css('.dropdown-placeholder'))
             .of(this.input());
 
-    availableOptionsDropdown = () =>
+    placeholder = () =>
+        Text.of(
+            PageElement.located(By.css('.dropdown-placeholder'))
+                .of(this.input())
+        );
+
+    private availableOptionsDropdown = () =>
         PageElement.located(By.css('.dropdown-available-options'))
             .of(this.rootElement)
             .describedAs('available options dropdown');
 
-    availableOptions = () =>
+    private availableOptionElements = () =>
         PageElements.located(By.css('.dropdown-available-option'))
-            .of(this.availableOptionsDropdown())
+            .of(this.availableOptionsDropdown());
+
+    availableOptions = () =>
+        Text.ofAll(this.availableOptionElements())
             .describedAs('available options');
 
     private availableOptionCalled = (name: Answerable<string>) =>
-        this.availableOptions()
+        this.availableOptionElements()
             .where(Text, includes(name))
             .first();
 
-    selectedOptions = () =>
+    private selectedOptionElements = () =>
         PageElements.located(By.css('.dropdown-selected-option'))
-            .of(this.input())
+            .of(this.input());
+
+    selectedElements = () =>
+        Text.ofAll(this.selectedOptionElements()).map(name => name.trim())
             .describedAs('selected options');
 
-    private selectedOptionCalled = (name: Answerable<string>) =>
-        this.selectedOptions()
+    private selectedOptionElementCalled = (name: Answerable<string>) =>
+        this.selectedOptionElements()
             .where(Text, includes(name))
             .first();
 
@@ -71,14 +83,14 @@ export class DropdownComponent {
         return Task.where(d`#actor selects ${ option } from ${ this.rootElement }`,
             this.open(),
             Click.on(this.availableOptionCalled(option)),
-            Ensure.that(Text.ofAll(this.selectedOptions()), contain(option)),
+            Ensure.that(Text.ofAll(this.selectedOptionElements()), containAtLeastOneItemThat(startsWith(option))),
         );
     }
 
     private deselectOne(option: Answerable<string>): Task {
         return Task.where(d`#actor deselects ${ option } from ${ this.rootElement }`,
-            Click.on(this.deselectButton().of(this.selectedOptionCalled(option))),
-            Ensure.that(Text.ofAll(this.selectedOptions()), not(contain(option))),
+            Click.on(this.deselectButton().of(this.selectedOptionElementCalled(option))),
+            Ensure.that(Text.ofAll(this.selectedOptionElements()), not(contain(option))),
         );
     }
 
