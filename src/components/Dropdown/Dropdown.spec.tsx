@@ -1,13 +1,12 @@
-import React from 'react'
-
 import { test as componentTest } from '@playwright/experimental-ct-react';
+import { Ensure, equals } from '@serenity-js/assertions';
+import { notes } from '@serenity-js/core';
 import { useBase } from '@serenity-js/playwright-test';
 import { PageElement } from '@serenity-js/web';
+import React from 'react'
 
 import { Dropdown, DropdownOption } from './Dropdown';
 import { DropdownComponent } from './Dropdown.serenity';
-import { Ensure, equals } from '@serenity-js/assertions';
-import { notes } from '@serenity-js/core';
 
 const { it, describe } = useBase(componentTest);
 
@@ -30,7 +29,7 @@ describe('Dropdown', () => {
         const dropdownComponent = DropdownComponent.from(
             PageElement.from(await mount(
                 <Dropdown placeholder={ placeholder }
-                          options={ options }
+                    options={ options }
                 />,
             )).describedAs('dropdown'),
         );
@@ -84,10 +83,10 @@ describe('Dropdown', () => {
         const dropdownComponent = DropdownComponent.from(
             PageElement.from(await mount(
                 <Dropdown allowMultiple
-                          options={ options }
-                          onChange={ selectedOptions => actor.attemptsTo(
-                              notes().set('selectedOptions', selectedOptions.map(option => option.label))
-                          ) }
+                    options={ options }
+                    onChange={ selectedOptions => actor.attemptsTo(
+                        notes().set('selectedOptions', selectedOptions.map(option => option.label))
+                    ) }
                 />,
             )).describedAs('dropdown'),
         );
@@ -136,8 +135,8 @@ describe('Dropdown', () => {
         const dropdownComponent = DropdownComponent.from(
             PageElement.from(await mount(
                 <Dropdown allowMultiple
-                          placeholder={ placeholder }
-                          options={ options } />,
+                    placeholder={ placeholder }
+                    options={ options } />,
             )).describedAs('dropdown'),
         );
 

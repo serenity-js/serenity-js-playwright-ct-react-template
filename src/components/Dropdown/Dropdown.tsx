@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const ExpandOptionsIcon = () => {
     return (
@@ -47,6 +47,7 @@ export function Dropdown({ placeholder, options, allowMultiple, onChange }: Drop
         }
 
         window.addEventListener('click', handler);
+        
         return () => {
             window.removeEventListener('click', handler);
         };

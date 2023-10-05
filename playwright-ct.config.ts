@@ -44,8 +44,10 @@ export default defineConfig<SerenityOptions>({
         headless: true,
 
         crew: [
-            // [ '@serenity-js/web:Photographer', { strategy: 'TakePhotosOfFailures' } ],
-            [ '@serenity-js/web:Photographer', { strategy: 'TakePhotosOfInteractions' } ]
+            [ '@serenity-js/web:Photographer', {
+                // strategy: 'TakePhotosOfInteractions'
+                strategy: 'TakePhotosOfFailures'
+            } ]
         ],
         defaultActorName: 'Tess',
     },
