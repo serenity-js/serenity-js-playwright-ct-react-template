@@ -1,109 +1,116 @@
-import { contain, containAtLeastOneItemThat, Ensure, includes, not, startsWith } from '@serenity-js/assertions';
-import { Answerable, Check, d, List, QuestionAdapter, Task, Wait } from '@serenity-js/core';
-import { By, Click, CssClasses, isVisible, PageElement, PageElements, Text } from '@serenity-js/web';
+import { contain, containAtLeastOneItemThat, Ensure, includes, not, startsWith } from '@serenity-js/assertions'
+import { Answerable, Check, d, List, QuestionAdapter, Task, Wait } from '@serenity-js/core'
+import { By, Click, CssClasses, isVisible, PageElement, PageElements, Text } from '@serenity-js/web'
 
-export class DropdownComponent {
-    static from = (rootElement: QuestionAdapter<PageElement>) =>
-        new DropdownComponent(rootElement);
+export class Dropdown {
+    private static componentSelector = () => By.css('.dropdown-input')
 
-    constructor(private readonly rootElement: QuestionAdapter<PageElement>) {
-    }
+    static component = <NET = any>() =>
+        PageElement.located<NET>(this.componentSelector()).describedAs('dropdown')
 
-    private input = () =>
+    static components = <NET = any>() =>
+        PageElements.located<NET>(this.componentSelector()).describedAs('dropdowns')
+
+    private static input = () =>
         PageElement.located(By.css('.dropdown-input'))
-            .describedAs('dropdown input')
-            .of(this.rootElement);
+            .describedAs('input field')
 
-    private placeholderElement = () =>
+    private static placeholderElement = () =>
         PageElement.located(By.css('.dropdown-placeholder'))
-            .of(this.input());
+            .of(Dropdown.input())
 
-    placeholder = () =>
-        Text.of(this.placeholderElement())
-            .describedAs('placeholder');
+    static placeholder = () =>
+        Text.of(Dropdown.placeholderElement())
+            .describedAs('placeholder')
 
-    private availableOptionsDropdown = () =>
+    private static availableOptionsList = () =>
         PageElement.located(By.css('.dropdown-available-options'))
-            .of(this.rootElement)
-            .describedAs('available options dropdown');
 
-    private availableOptionElements = () =>
+    private static availableOptionElements = () =>
         PageElements.located(By.css('.dropdown-available-option'))
-            .of(this.availableOptionsDropdown());
+            .of(Dropdown.availableOptionsList())
 
-    availableOptions = () =>
+    static availableOptions = () =>
         Text.ofAll(this.availableOptionElements())
-            .describedAs('available options');
+            .describedAs('available options')
 
-    private availableOptionCalled = (name: Answerable<string>) =>
+    private static availableOptionCalled = (name: Answerable<string>) =>
         this.availableOptionElements()
             .where(Text, includes(name))
-            .first();
+            .first()
 
-    private selectedOptionElements = () =>
+    private static selectedOptionElements = () =>
         PageElements.located(By.css('.dropdown-selected-option'))
-            .of(this.input());
+            .of(Dropdown.input())
 
-    selectedElements = () =>
-        Text.ofAll(this.selectedOptionElements()).map(name => name.trim())
-            .describedAs('selected options');
+    static selectedOptions = () => ({
+        of: (dropdown: QuestionAdapter<PageElement>) =>
+            Text.ofAll(Dropdown.selectedOptionElements())
+                .of(dropdown)
+                .map(name => name.trim())
+                .describedAs('selected options')
+    })
 
-    private selectedOptionElementCalled = (name: Answerable<string>) =>
-        this.selectedOptionElements()
+    private static selectedOptionElementCalled = (name: Answerable<string>) =>
+        Dropdown.selectedOptionElements()
             .where(Text, includes(name))
-            .first();
+            .first()
 
-    private deselectButton = () =>
+    private static deselectButton = () =>
         PageElement.located(By.css('.dropdown-deselect-option'))
-            .describedAs('deselect button');
+            .describedAs('deselect button')
 
-    select(options: Answerable<string[]>): Task {
-        return Task.where(d`#actor selects ${ options } from ${ this.rootElement }`,
-            List.of(options).forEach(({ item, actor }) =>
-                actor.attemptsTo(
-                    this.selectOne(item),
+    static select = (options: Answerable<string[]>) => ({
+        from: (dropdown: QuestionAdapter<PageElement>) =>
+            Task.where(d`#actor selects ${ options } from ${ dropdown }`,
+                List.of(options).forEach(({ item, actor }) =>
+                    actor.attemptsTo(
+                        Dropdown.selectOne(item).from(dropdown),
+                    ),
                 ),
-            ),
-        );
-    }
+            )
+    })
 
-    deselect(options: Answerable<string[]>): Task {
-        return Task.where(d`#actor deselects ${ options } from ${ this.rootElement }`,
-            List.of(options).forEach(({ item, actor }) =>
-                actor.attemptsTo(
-                    this.deselectOne(item),
+    static deselect = (options: Answerable<string[]>) => ({
+        from: (dropdown: QuestionAdapter<PageElement>) =>
+            Task.where(d`#actor deselects ${ options } from ${ dropdown }`,
+                List.of(options).forEach(({ item, actor }) =>
+                    actor.attemptsTo(
+                        Dropdown.deselectOne(item).from(dropdown),
+                    ),
                 ),
-            ),
-        );
-    }
+            )
+    })
 
-    private selectOne(option: Answerable<string>): Task {
-        return Task.where(d`#actor selects ${ option } from ${ this.rootElement }`,
-            this.open(),
-            Click.on(this.availableOptionCalled(option)),
-            Ensure.that(Text.ofAll(this.selectedOptionElements()), containAtLeastOneItemThat(startsWith(option))),
-        );
-    }
+    private static selectOne = (option: Answerable<string>)  => ({
+        from: (dropdown: QuestionAdapter<PageElement>) =>
+            Task.where(d`#actor selects ${ option } from ${ dropdown }`,
+                Dropdown.open(dropdown),
+                Click.on(this.availableOptionCalled(option)),
+                Ensure.that(Text.ofAll(this.selectedOptionElements()), containAtLeastOneItemThat(startsWith(option))),
+            )
+    })
 
-    private deselectOne(option: Answerable<string>): Task {
-        return Task.where(d`#actor deselects ${ option } from ${ this.rootElement }`,
-            Click.on(this.deselectButton().of(this.selectedOptionElementCalled(option))),
-            Ensure.that(Text.ofAll(this.selectedOptionElements()), not(contain(option))),
-        );
-    }
+    private static deselectOne = (option: Answerable<string>) => ({
+        from: (dropdown: QuestionAdapter<PageElement>) =>
+            Task.where(d`#actor deselects ${ option } from ${ dropdown }`,
+                Click.on(Dropdown.deselectButton().of(Dropdown.selectedOptionElementCalled(option))),
+                Ensure.that(Text.ofAll(this.selectedOptionElements()), not(contain(option))),
+            )
+    })
 
-    open = () =>
-        Task.where(`#actor opens the ${ this.rootElement }`,
-            Check.whether(CssClasses.of(this.rootElement), not(contain('dropdown-expanded')))
+    static open = (dropdown: QuestionAdapter<PageElement>) =>
+        Task.where(`#actor opens the ${ dropdown }`,
+            Check.whether(CssClasses.of(dropdown), not(contain('dropdown-expanded')))
                 .andIfSo(
                     Click.on(this.input()),
-                    Wait.until(this.availableOptionsDropdown(), isVisible()),
+                    Wait.until(this.availableOptionsList(), isVisible()),
                 ),
         )
 
-    close = () =>
-        Task.where(`#actor closes the ${ this.rootElement }`,
-            Check.whether(CssClasses.of(this.rootElement), contain('dropdown-expanded'))
-                .andIfSo(Click.on(this.input())),
+    static close = (dropdown: QuestionAdapter<PageElement>) =>
+        Task.where(`#actor closes the ${ dropdown }`,
+            Check.whether(CssClasses.of(dropdown), contain('dropdown-expanded'))
+                .andIfSo(Click.on(Dropdown.input())),
         )
 }

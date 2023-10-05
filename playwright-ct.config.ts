@@ -45,8 +45,8 @@ export default defineConfig<SerenityOptions>({
 
         crew: [
             [ '@serenity-js/web:Photographer', {
-                // strategy: 'TakePhotosOfInteractions'
-                strategy: 'TakePhotosOfFailures'
+                strategy: 'TakePhotosOfInteractions'
+                // strategy: 'TakePhotosOfFailures'
             } ]
         ],
         defaultActorName: 'Tess',
