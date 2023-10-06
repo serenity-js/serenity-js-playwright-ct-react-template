@@ -1,13 +1,12 @@
-import React from 'react'
-
 import { test as componentTest } from '@playwright/experimental-ct-react';
-import { useBase } from '@serenity-js/playwright-test';
-import { PageElement, Text } from '@serenity-js/web';
-
-import { Dropdown, DropdownOption } from './Dropdown';
-import { DropdownComponent } from './Dropdown.serenity';
 import { Ensure, equals } from '@serenity-js/assertions';
 import { notes } from '@serenity-js/core';
+import { useBase } from '@serenity-js/playwright-test';
+import { PageElement } from '@serenity-js/web';
+import React from 'react'
+
+import { Dropdown as DropdownComponent, DropdownOption } from './Dropdown';
+import { Dropdown } from './Dropdown.serenity';
 
 const { it, describe } = useBase(componentTest);
 
@@ -27,53 +26,45 @@ describe('Dropdown', () => {
     it('shows the placeholder when no option is selected yet', async ({ mount, actor }) => {
         const placeholder = 'Select option';
 
-        const dropdownComponent = DropdownComponent.from(
-            PageElement.from(await mount(
-                <Dropdown placeholder={ placeholder }
-                          options={ options }
-                />,
-            )).describedAs('dropdown'),
-        );
+        const dropdownComponent = PageElement.from(await mount(
+            <DropdownComponent placeholder={ placeholder } options={ options } />,
+        )).describedAs('dropdown')
 
         await actor.attemptsTo(
             Ensure.eventually(
-                Text.of(dropdownComponent.placeholder()),
+                Dropdown.placeholder().of(dropdownComponent),
                 equals(placeholder),
             ),
         )
     });
 
     it('shows the available options when the menu is expanded', async ({ mount, actor }) => {
-        const dropdownComponent = DropdownComponent.from(
-            PageElement.from(await mount(
-                <Dropdown options={ options }/>,
-            )).describedAs('dropdown'),
-        );
+        const dropdownComponent = PageElement.from(await mount(
+            <DropdownComponent options={ options }/>,
+        )).describedAs('dropdown')
 
         await actor.attemptsTo(
-            dropdownComponent.open(),
+            Dropdown.open(dropdownComponent),
 
             Ensure.eventually(
-                Text.ofAll(dropdownComponent.availableOptions()),
+                Dropdown.availableOptions().of(dropdownComponent),
                 equals(labels),
             ),
         )
     });
 
     it('selects the desired options', async ({ mount, actor }) => {
-        const dropdownComponent = DropdownComponent.from(
-            PageElement.from(await mount(
-                <Dropdown allowMultiple options={ options }/>,
-            )).describedAs('dropdown'),
-        );
+        const dropdownComponent = PageElement.from(await mount(
+            <DropdownComponent allowMultiple options={ options }/>,
+        )).describedAs('dropdown')
 
         await actor.attemptsTo(
-            dropdownComponent.select([
+            Dropdown.select([
                 'First',
                 'Third'
-            ]),
+            ]).from(dropdownComponent),
 
-            Ensure.that(Text.ofAll(dropdownComponent.selectedOptions()), equals([
+            Ensure.that(Dropdown.selectedOptions().of(dropdownComponent), equals([
                 'First',
                 'Third',
             ])),
@@ -81,49 +72,45 @@ describe('Dropdown', () => {
     });
 
     it('triggers onChange with selected options', async ({ mount, actor }) => {
-        const dropdownComponent = DropdownComponent.from(
-            PageElement.from(await mount(
-                <Dropdown allowMultiple
-                          options={ options }
-                          onChange={ selectedOptions => actor.attemptsTo(
-                              notes().set('selectedOptions', selectedOptions.map(option => option.label))
-                          ) }
-                />,
-            )).describedAs('dropdown'),
-        );
+        const dropdownComponent = PageElement.from(await mount(
+            <DropdownComponent allowMultiple
+                options={ options }
+                onChange={ selectedOptions => actor.attemptsTo(
+                    notes().set('selectedOptions', selectedOptions.map(option => option.label))
+                ) }
+            />,
+        )).describedAs('dropdown')
 
         await actor.attemptsTo(
-            dropdownComponent.select([
+            Dropdown.select([
                 'First',
                 'Third'
-            ]),
+            ]).from(dropdownComponent),
 
             Ensure.eventually(notes().get('selectedOptions'), equals([
                 'First',
                 'Third',
             ])),
-        );
+        )
     });
 
     it('allows for selected options to be deselected', async ({ mount, actor }) => {
-        const dropdownComponent = DropdownComponent.from(
-            PageElement.from(await mount(
-                <Dropdown allowMultiple options={ options } />,
-            )).describedAs('dropdown'),
-        );
+        const dropdownComponent = PageElement.from(await mount(
+            <DropdownComponent allowMultiple options={ options } />,
+        )).describedAs('dropdown')
 
         await actor.attemptsTo(
-            dropdownComponent.select([
+            Dropdown.select([
                 'First',
                 'Third',
                 'Second',
-            ]),
+            ]).from(dropdownComponent),
 
-            dropdownComponent.deselect([
+            Dropdown.deselect([
                 'First',
-            ]),
+            ]).from(dropdownComponent),
 
-            Ensure.that(Text.ofAll(dropdownComponent.selectedOptions()), equals([
+            Ensure.that(Dropdown.selectedOptions().of(dropdownComponent), equals([
                 'Third',
                 'Second',
             ])),
@@ -133,28 +120,26 @@ describe('Dropdown', () => {
     it('goes back to showing the placeholder when all the selected options get deselected', async ({ mount, actor }) => {
         const placeholder = 'Select option';
 
-        const dropdownComponent = DropdownComponent.from(
-            PageElement.from(await mount(
-                <Dropdown allowMultiple
-                          placeholder={ placeholder }
-                          options={ options } />,
-            )).describedAs('dropdown'),
-        );
+        const dropdownComponent = PageElement.from(await mount(
+            <DropdownComponent allowMultiple
+                placeholder={ placeholder }
+                options={ options } />,
+        )).describedAs('dropdown')
 
         await actor.attemptsTo(
-            dropdownComponent.select([
+            Dropdown.select([
                 'First',
                 'Second',
-            ]),
+            ]).from(dropdownComponent),
 
-            dropdownComponent.deselect([
+            Dropdown.deselect([
                 'First',
                 'Second',
-            ]),
+            ]).from(dropdownComponent),
 
-            Ensure.that(dropdownComponent.selectedOptions().count(), equals(0)),
+            Ensure.that(Dropdown.selectedOptions().of(dropdownComponent).length, equals(0)),
             Ensure.that(
-                Text.of(dropdownComponent.placeholder()),
+                Dropdown.placeholder().of(dropdownComponent),
                 equals(placeholder),
             ),
         );

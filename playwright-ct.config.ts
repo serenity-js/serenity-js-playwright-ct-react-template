@@ -44,8 +44,10 @@ export default defineConfig<SerenityOptions>({
         headless: true,
 
         crew: [
-            // [ '@serenity-js/web:Photographer', { strategy: 'TakePhotosOfFailures' } ],
-            [ '@serenity-js/web:Photographer', { strategy: 'TakePhotosOfInteractions' } ]
+            [ '@serenity-js/web:Photographer', {
+                strategy: 'TakePhotosOfInteractions'
+                // strategy: 'TakePhotosOfFailures'
+            } ]
         ],
         defaultActorName: 'Tess',
     },
@@ -56,13 +58,13 @@ export default defineConfig<SerenityOptions>({
             name: 'chromium',
             use: { ...devices['Desktop Chrome'] },
         },
-        // {
-        //   name: 'firefox',
-        //   use: { ...devices['Desktop Firefox'] },
-        // },
-        // {
-        //   name: 'webkit',
-        //   use: { ...devices['Desktop Safari'] },
-        // },
+        {
+            name: 'firefox',
+            use: { ...devices['Desktop Firefox'] },
+        },
+        {
+            name: 'webkit',
+            use: { ...devices['Desktop Safari'] },
+        },
     ],
 });
