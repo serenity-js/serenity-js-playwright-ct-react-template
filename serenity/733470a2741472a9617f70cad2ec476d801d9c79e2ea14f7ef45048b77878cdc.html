@@ -172,8 +172,14 @@
         <li >
             <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
         </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="bi bi-chat-text"></i> Capabilities</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 09-01-2024 03:17:57</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 12-01-2024 18:23:22</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -241,48 +247,48 @@
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>Jan 09, 2024 03:17:37</td>
+                    <td>Jan 12, 2024 18:22:51</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td>Jan 09, 2024 03:17:53</td>
+                    <td>Jan 12, 2024 18:23:15</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td>16s</td>
+                    <td>24s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>907ms</td>
+                    <td>1s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>4s</td>
+                    <td>9s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>2s</td>
+                    <td>4s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td>16s</td>
+                    <td>24s</td>
                 </tr>
                 </tbody>
             </table>
@@ -309,6 +315,14 @@
                                             </div>
                                             <div class="container-fluid">
                                                 <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <!-- High level coverage bar chart -->
+                                                            <div class="chart-container" style="position: relative; width:60vw">
+                                                                <h3><i class="bi bi-reception-3"></i> Functional Coverage Overview</h3>
+                                                                <h4>Features</h4>
+                                                                <canvas id="coverageChart"></canvas>
+                                                            </div>
+                                                        </div>
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-sm-12">
@@ -366,6 +380,52 @@
                                             </div>
 
                                             <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-sm-11">
+                                                            <h3>Functional Coverage Details</h3>
+
+
+                                                                    <h4>Features</h4>
+
+                                                                    <table class="table feature-coverage-table" id="Feature">
+                                                                        <thead>
+                                                                        <tr>
+                                                                            <th>Feature</th>
+                                                                            <th style="width:1em;">Test&nbsp;Cases</th>
+                                                                            <th style="width:1em;">Scenarios</th>
+                                                                            <th style="width:1em;">%&nbsp;Pass</th>
+                                                                            <th style="width:1em;">Result</th>
+                                                                            <th>Coverage</th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                            <a href="ab1ba54398022140aed35381e7b8959f114fc6153469eac4bbc329d708571d7f.html" > Dropdown</a>
+                                                                                    </td>
+                                                                                    <td>6</td>
+                                                                                    <td>6</td>
+                                                                                    <td>100%</td>
+                                                                                    <td>
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="progress">
+                                                                                                <div class="progress-bar"
+                                                                                                     role="progressbar"
+                                                                                                     style="width: 100%; background-color: #b0cf73"
+                                                                                                     aria-valuenow="6"
+                                                                                                     title="100% success"
+                                                                                                     aria-valuemin="0"
+                                                                                                     aria-valuemax="100">
+                                                                                                </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                        </div>
+                                                    </div>
 
                                             </div>
                                             <div class="container-fluid">
@@ -432,7 +492,7 @@
                                             <table class="scenario-result-table table" id="scenario-results">
                                                 <thead>
                                                 <tr>
-                                                    <th>Feature</th>
+                                                    <th>feature</th>
                                                     <th class="test-name-column">Scenario</th>
                                                     <th>Steps</th>
                                                     <th>Started</th>
@@ -445,10 +505,10 @@
                                                             <td>
                                                                     <a href="#">Dropdown</a>
                                                             </td>
-                                                            <td><a href="f86270802d65b80d5720512e464746a2defca73e192d45a06aab6289b1bd9414.html">shows the placeholder when no option is selected yet</a></td>
+                                                            <td><a href="a204783761cf6fb54eeb26f9c69cafc4183383550ccd8a7fec5e86109e81e60e.html">shows the placeholder when no option is selected yet</a></td>
                                                             <td>1</td>
-                                                            <td>03:17:37</td>
-                                                            <td>1s 669ms</td>
+                                                            <td>18:22:51</td>
+                                                            <td>9s 459ms</td>
                                                             <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
                                                             </td>
                                                         </tr>
@@ -456,10 +516,10 @@
                                                             <td>
                                                                     <a href="#">Dropdown</a>
                                                             </td>
-                                                            <td><a href="21c88215c20e9e5ab1ebffcc189b057f42830f9464bd0f5932e1edea67f513be.html">shows the available options when the menu is expanded</a></td>
+                                                            <td><a href="8222b86bc04114ead9423ca324849fe9aa04db0ed1a949bca8935f0c7fe38bfb.html">shows the available options when the menu is expanded</a></td>
                                                             <td>2</td>
-                                                            <td>03:17:38</td>
-                                                            <td>907ms</td>
+                                                            <td>18:23:00</td>
+                                                            <td>1s 035ms</td>
                                                             <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
                                                             </td>
                                                         </tr>
@@ -467,10 +527,10 @@
                                                             <td>
                                                                     <a href="#">Dropdown</a>
                                                             </td>
-                                                            <td><a href="0c432036f9bb1190482f921635d062150d9aba6a1fdc28971f8a150d82dd7e72.html">selects the desired options</a></td>
+                                                            <td><a href="3289bd9dea4661cf8af440c6b1409bb3dac528a46e4c93cd32bc9fe61962aef3.html">selects the desired options</a></td>
                                                             <td>2</td>
-                                                            <td>03:17:39</td>
-                                                            <td>2s 758ms</td>
+                                                            <td>18:23:01</td>
+                                                            <td>2s 686ms</td>
                                                             <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
                                                             </td>
                                                         </tr>
@@ -478,10 +538,10 @@
                                                             <td>
                                                                     <a href="#">Dropdown</a>
                                                             </td>
-                                                            <td><a href="fe4a4661c48c0f8e9b30e9e806779abdce382d0d499d5b827212561887611f6e.html">triggers onChange with selected options</a></td>
+                                                            <td><a href="e970972ca919580de45aa590930f330256f44c64c90f9c4073ca36481e8532b9.html">triggers onChange with selected options</a></td>
                                                             <td>2</td>
-                                                            <td>03:17:42</td>
-                                                            <td>3s 144ms</td>
+                                                            <td>18:23:04</td>
+                                                            <td>2s 975ms</td>
                                                             <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
                                                             </td>
                                                         </tr>
@@ -489,10 +549,10 @@
                                                             <td>
                                                                     <a href="#">Dropdown</a>
                                                             </td>
-                                                            <td><a href="85668334a5c187e9674541625e63231800e93f2e4d9de5ad53693bcab37d1fce.html">allows for selected options to be deselected</a></td>
+                                                            <td><a href="1261b045e2eeb7b3eea3b5f3a547debf5d7908c3d1ac41a6176a3c443da2641f.html">allows for selected options to be deselected</a></td>
                                                             <td>3</td>
-                                                            <td>03:17:45</td>
-                                                            <td>4s 214ms</td>
+                                                            <td>18:23:07</td>
+                                                            <td>4s 178ms</td>
                                                             <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
                                                             </td>
                                                         </tr>
@@ -500,10 +560,10 @@
                                                             <td>
                                                                     <a href="#">Dropdown</a>
                                                             </td>
-                                                            <td><a href="75d89c339d0c8b13713370987dda941c395abbcc6a14d92f6c848f8b03c63fce.html">goes back to showing the placeholder when all the selected options get deselected</a></td>
+                                                            <td><a href="d122a456995222a65bfaf488ec693767b89b4dfd6d2e3c5f63a663967535ad30.html">goes back to showing the placeholder when all the selected options get deselected</a></td>
                                                             <td>4</td>
-                                                            <td>03:17:50</td>
-                                                            <td>3s 644ms</td>
+                                                            <td>18:23:11</td>
+                                                            <td>3s 699ms</td>
                                                             <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
                                                             </td>
                                                         </tr>
@@ -800,7 +860,7 @@
             datasets: [{
                 label: 'Number of tests per duration',
                 fill: false,
-                data: ['1','5','0','0','0','0','0','0'],
+                data: ['0','6','0','0','0','0','0','0'],
                 backgroundColor: 'rgba(83, 146, 255,0.5)',
                 borderColor: 'rgba(83, 146, 255, 1)',
             }]
@@ -851,6 +911,118 @@
     </script>
     <!-- END DURATION CHART -->
 
+
+
+    <!-- COVERAGE BAR CHART -->
+    <script>
+
+        // The coverage bar chart
+        const coverageChartCtx = document.getElementById('coverageChart');
+
+        // Options define for display value on top of bars
+
+        const coverageReports = [
+            {
+                title: 'Dropdown',
+                result: 'SUCCESS',
+                link: "ab1ba54398022140aed35381e7b8959f114fc6153469eac4bbc329d708571d7f.html"
+            },
+        ]
+        const coverageData = {
+            labels: [
+                'Dropdown',
+            ],
+            datasets: [
+                {
+                    label: ['Passing Tests'],
+                    data: [6],
+                    backgroundColor: [ 'rgba(153,204,51,0.5)' ]
+                },
+                {
+                    label: ['Pending Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(165, 199, 238, 0.5)' ]
+                },
+                {
+                    label: ['Ignored Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(168, 168, 168, 0.5)' ]
+                },
+                {
+                    label: ['Skipped Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(238, 224, 152, 0.75)' ]
+                },
+                {
+                    label: ['Aborted Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(255, 153, 102, 0.5)' ]
+                },
+                {
+                    label: ['Failed Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(255, 22, 49, 0.5)' ]
+                },
+                {
+                    label: ['Errors'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(255, 97, 8, 0.5)' ]
+                },
+                {
+                    label: ['Compromised Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(255, 104, 255, 0.5)' ]
+                },
+            ]
+        }
+        const coverageOptions = {
+            responsive: true,
+            indexAxis: 'y',
+            // barPercentage: ,
+            barThickness: 'flex',
+            maxBarThickness: 30,
+            minBarLength: 2,
+            skipNull: true,
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true,
+                }
+            },
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold'
+                },
+                tooltip: {
+                    enabled: true,
+                    usePointStyle: true,
+                },
+            },
+        }
+
+        const coverageChart = new Chart(coverageChartCtx, {
+            type: 'bar',
+            data: coverageData,
+            options: coverageOptions
+        });
+
+        function coverageClickHandler(click) {
+            const points = coverageChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                if (coverageReports[firstPoint.index].link) {
+                    window.open(coverageReports[firstPoint.index].link, "_self")
+                }
+            }
+        }
+
+        coverageChartCtx.onclick = coverageClickHandler;
+    </script>
+    <!-- END COVERAGE CHART -->
 
 </body>
 </html>
