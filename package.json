@@ -22,7 +22,7 @@
     "./dist/style.css": "./dist/style.css"
   },
   "scripts": {
-    "postinstall": "serenity-bdd update --artifact=net.serenity-bdd:serenity-cli:jar:4.0.14",
+    "postinstall": "serenity-bdd update",
     "clean": "rimraf dist target",
     "build": "npm run build:js && npm run build:css",
     "build:js": "npm run build:js:esm && npm run build:js:cjs && npm run build:js:cjs-package",
@@ -32,7 +32,7 @@
     "build:css": "cpy 'src/**/*.css' dist",
     "test": "failsafe clean test:execute test:report",
     "test:execute": "playwright test -c playwright-ct.config.ts",
-    "test:report": "serenity-bdd run --artifact=net.serenity-bdd:serenity-cli:jar:4.0.14",
+    "test:report": "serenity-bdd run",
     "start": "mkdirp target/site/serenity && npx http-server -p 8080 target/site/serenity -s -o",
     "lint": "eslint --ext ts --config .eslintrc.cjs .",
     "lint:fix": "npm run lint -- --fix"
