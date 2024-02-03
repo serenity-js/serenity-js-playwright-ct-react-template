@@ -32,7 +32,7 @@
     "build:css": "cpy 'src/**/*.css' dist",
     "test": "failsafe clean test:execute test:report",
     "test:execute": "playwright test -c playwright-ct.config.ts",
-    "test:report": "serenity-bdd run",
+    "test:report": "serenity-bdd run --features ./src",
     "start": "mkdirp target/site/serenity && npx http-server -p 8080 target/site/serenity -s -o",
     "lint": "eslint --ext ts --config .eslintrc.cjs .",
     "lint:fix": "npm run lint -- --fix"
