@@ -3,10 +3,10 @@ import { Ensure, equals } from '@serenity-js/assertions';
 import { notes } from '@serenity-js/core';
 import { useBase } from '@serenity-js/playwright-test';
 import { PageElement } from '@serenity-js/web';
-import React from 'react'
+import React from 'react';
 
-import { Dropdown as DropdownComponent, DropdownOption } from './Dropdown';
-import { Dropdown } from './Dropdown.serenity';
+import { Dropdown as DropdownComponent, DropdownOption } from './Dropdown.js';
+import { Dropdown } from './Dropdown.serenity.js';
 
 const { it, describe } = useBase(componentTest);
 
