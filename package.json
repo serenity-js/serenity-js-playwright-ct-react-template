@@ -98,6 +98,6 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "clsx": "^2.1.0"
+    "clsx": "^2.1.1"
   }
 }
