@@ -115,7 +115,11 @@
                     search: ""
                 },
                 columnDefs: [
-                    {type: 'time-elapsed-dhms', targets: 5}
+                    {
+                        targets: 4,
+                        visible: false
+                    },
+                    {type: 'time-elapsed-dhms', targets: 6}
                 ]
             })
             $("#manual-scenario-results").DataTable({
@@ -124,6 +128,12 @@
                     searchPlaceholder: "Filter",
                     search: ""
                 },
+                columnDefs: [
+                    {
+                        targets: 4,
+                        visible: false
+                    },
+                ]
             })
 
             // Results table
@@ -142,7 +152,17 @@
             $(".feature-coverage-table").DataTable({
                 searching: true,
                 paging: false,
-                info: false
+                info: false,
+                language: {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                },
+                columnDefs: [
+                    {
+                        targets: 2,
+                        visible: false
+                    },
+                ]
             });
 
             $(".feature-coverage-table-with-pagination").DataTable({
@@ -152,7 +172,13 @@
                 language: {
                     searchPlaceholder: "Filter",
                     search: ""
-                }
+                },
+                columnDefs: [
+                    {
+                        targets: 2,
+                        visible: false
+                    },
+                ]
             });
         });
     </script>
@@ -206,7 +232,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 19-08-2024 04:07:06</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 27-08-2024 16:53:59</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -306,7 +332,7 @@
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>Aug 19, 2024 04:06:25</td>
+                    <td>Aug 27, 2024 16:53:22</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -326,7 +352,7 @@
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>525ms</td>
+                    <td>510ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -347,7 +373,7 @@
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td>7s</td>
+                    <td>8s</td>
                 </tr>
                 </tbody>
             </table>
@@ -364,12 +390,12 @@
 
                                                                     <h4>Features</h4>
 
-                                                                    <table class="table feature-coverage-table"
-                                                                           id="Feature">
+                                                                    <table class="table feature-coverage-table" id="Feature" style="width:100%">
                                                                         <thead>
                                                                         <tr>
                                                                             <th>Feature</th>
                                                                             <th style="width:1em;">Scenarios</th>
+                                                                            <th style="width:1em;">StepsText</th>
                                                                             <th style="width:1em;">Test&nbsp;Cases</th>
                                                                             <th style="width:1em;">%&nbsp;Pass</th>
                                                                             <th style="width:1em;">Result</th>
@@ -382,6 +408,106 @@
                                                                                             <a href="9ce40a2d624b648140830704bf22f01fe99595d46804d8fd7afa9b67a3af9b88.html"> Dropdown</a>
                                                                                     </td>
                                                                                     <td>6</td>
+                                                                                    <td>Tess ensures that placeholder of dropdown does eventually equal "Select option"
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess ensures that available options of dropdown does eventually equal [ "First", "Second", "Third" ]
+Tess selects [ 'First', 'Third' ] from dropdown
+Tess iterates over [ 'First', 'Third' ]
+Tess selects 'First' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "First"
+Tess selects 'Third' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Third"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Third"
+Tess ensures that selected options does equal [ "First", "Third" ]
+Tess selects [ 'First', 'Third' ] from dropdown
+Tess iterates over [ 'First', 'Third' ]
+Tess selects 'First' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "First"
+Tess takes notes:
+- selectedOptions: [ "First" ]
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "First"
+Tess selects 'Third' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Third"
+Tess takes notes:
+- selectedOptions: [ "First", "Third" ]
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Third"
+Tess ensures that [ "First", "Third" ] does eventually equal [ "First", "Third" ]
+Tess selects [ 'First', 'Third', 'Second' ] from dropdown
+Tess iterates over [ 'First', 'Third', 'Second' ]
+Tess selects 'First' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "First"
+Tess selects 'Third' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Third"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Third"
+Tess selects 'Second' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Second"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Second"
+Tess deselects [ 'First' ] from dropdown
+Tess iterates over [ 'First' ]
+Tess deselects 'First' from dropdown
+Tess clicks on deselect button of the first of page elements located by css ('.dropdown-selected-option') of input field where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does not contain "First"
+Tess ensures that selected options does equal [ "Third", "Second" ]
+Tess selects [ 'First', 'Second' ] from dropdown
+Tess iterates over [ 'First', 'Second' ]
+Tess selects 'First' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "First"
+Tess selects 'Second' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Second"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Second"
+Tess deselects [ 'First', 'Second' ] from dropdown
+Tess iterates over [ 'First', 'Second' ]
+Tess deselects 'First' from dropdown
+Tess clicks on deselect button of the first of page elements located by css ('.dropdown-selected-option') of input field where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does not contain "First"
+Tess deselects 'Second' from dropdown
+Tess clicks on deselect button of the first of page elements located by css ('.dropdown-selected-option') of input field where Text does include "Second"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does not contain "Second"
+Tess ensures that 0 does equal 0
+Tess ensures that placeholder of dropdown does equal "Select option"
+</td>
                                                                                     <td>6</td>
                                                                                     <td>100%</td>
                                                                                     <td>
@@ -513,7 +639,7 @@
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>525ms</td>
+                    <td>510ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -530,7 +656,7 @@
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>Aug 19, 2024 04:06:25</td>
+                    <td>Aug 27, 2024 16:53:22</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
@@ -547,7 +673,7 @@
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td>7s</td>
+                    <td>8s</td>
                 </tr>
                 </tbody>
             </table>
@@ -556,14 +682,14 @@
 
                                                         <h3><i class="bi bi-gear"></i> Automated Scenarios</h3>
 
-                                                            <table class="scenario-result-table table"
-                                                                   id="scenario-results">
+                                                            <table class="scenario-result-table table" id="scenario-results" style="width:100%">
                                                                 <thead>
                                                                 <tr>
                                                                     <th>feature</th>
                                                                     <th class="test-name-column">Scenario</th>
                                                                     <th>Context</th>
                                                                     <th>Steps</th>
+                                                                    <th>StepsText</th>
                                                                     <th>Started</th>
                                                                     <th>Total Duration</th>
                                                                     <th>Result</th>
@@ -580,8 +706,10 @@
                                                                         <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i></span><span style="display:none">linux,Chrome</span>
                                                                         </td>
                                                                         <td>1</td>
-                                                                        <td data-order="1724040385">04:06:25</td>
-                                                                        <td>525ms</td>
+                                                                        <td>Tess ensures that placeholder of dropdown does eventually equal "Select option"
+</td>
+                                                                        <td data-order="1724777602">16:53:22</td>
+                                                                        <td>510ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -596,8 +724,11 @@
                                                                         <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i></span><span style="display:none">linux,Chrome</span>
                                                                         </td>
                                                                         <td>2</td>
-                                                                        <td data-order="1724040386">04:06:26</td>
-                                                                        <td>568ms</td>
+                                                                        <td>Tess opens the dropdown
+Tess ensures that available options of dropdown does eventually equal [ "First", "Second", "Third" ]
+</td>
+                                                                        <td data-order="1724777602">16:53:22</td>
+                                                                        <td>569ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -612,8 +743,11 @@
                                                                         <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i></span><span style="display:none">linux,Chrome</span>
                                                                         </td>
                                                                         <td>2</td>
-                                                                        <td data-order="1724040386">04:06:26</td>
-                                                                        <td>1s 321ms</td>
+                                                                        <td>Tess selects [ 'First', 'Third' ] from dropdown
+Tess ensures that selected options does equal [ "First", "Third" ]
+</td>
+                                                                        <td data-order="1724777603">16:53:23</td>
+                                                                        <td>1s 348ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -628,8 +762,11 @@
                                                                         <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i></span><span style="display:none">linux,Chrome</span>
                                                                         </td>
                                                                         <td>2</td>
-                                                                        <td data-order="1724040387">04:06:27</td>
-                                                                        <td>1s 497ms</td>
+                                                                        <td>Tess selects [ 'First', 'Third' ] from dropdown
+Tess ensures that [ "First", "Third" ] does eventually equal [ "First", "Third" ]
+</td>
+                                                                        <td data-order="1724777604">16:53:24</td>
+                                                                        <td>1s 503ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -644,8 +781,12 @@
                                                                         <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i></span><span style="display:none">linux,Chrome</span>
                                                                         </td>
                                                                         <td>3</td>
-                                                                        <td data-order="1724040389">04:06:29</td>
-                                                                        <td>2s 165ms</td>
+                                                                        <td>Tess selects [ 'First', 'Third', 'Second' ] from dropdown
+Tess deselects [ 'First' ] from dropdown
+Tess ensures that selected options does equal [ "Third", "Second" ]
+</td>
+                                                                        <td data-order="1724777606">16:53:26</td>
+                                                                        <td>2s 188ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -660,8 +801,13 @@
                                                                         <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i></span><span style="display:none">linux,Chrome</span>
                                                                         </td>
                                                                         <td>4</td>
-                                                                        <td data-order="1724040391">04:06:31</td>
-                                                                        <td>1s 910ms</td>
+                                                                        <td>Tess selects [ 'First', 'Second' ] from dropdown
+Tess deselects [ 'First', 'Second' ] from dropdown
+Tess ensures that 0 does equal 0
+Tess ensures that placeholder of dropdown does equal "Select option"
+</td>
+                                                                        <td data-order="1724777608">16:53:28</td>
+                                                                        <td>1s 909ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -776,7 +922,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
-            <span class="version">Serenity BDD version 4.1.6</span>
+            <span class="version">Serenity BDD version 4.1.20</span>
         </div>
     </div>
 </div>
