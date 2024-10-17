@@ -71,7 +71,7 @@
     }
   },
   "devDependencies": {
-    "@playwright/experimental-ct-react": "1.48.0",
+    "@playwright/experimental-ct-react": "1.48.1",
     "@serenity-js/assertions": "^3.29.4",
     "@serenity-js/console-reporter": "^3.29.4",
     "@serenity-js/core": "^3.29.4",
