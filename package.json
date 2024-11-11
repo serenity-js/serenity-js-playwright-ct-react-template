@@ -22,7 +22,6 @@
     "./dist/style.css": "./dist/style.css"
   },
   "scripts": {
-    "postinstall": "serenity-bdd update",
     "clean": "rimraf dist target",
     "build": "npm run build:js && npm run build:css",
     "build:js": "npm run build:js:esm && npm run build:js:cjs && npm run build:js:cjs-package",
