@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: '22.x'
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -46,6 +46,6 @@ jobs:
         if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@v4.6.9
         with:
-          BRANCH: gh-pages
-          FOLDER: target/site
-          CLEAN: true
+          branch: gh-pages
+          folder: target/site
+          clean: true

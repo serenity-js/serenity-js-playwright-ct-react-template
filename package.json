@@ -57,7 +57,7 @@
     "url": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/issues"
   },
   "engines": {
-    "node": "^16.13 || ^18.12 || ^20 || ^22.0.0"
+    "node": "^18.12 || ^20 || ^22"
   },
   "peerDependencies": {
     "@types/react": "^16.8.0 || ^17.0.0 || ^18.0.0",
