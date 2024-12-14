@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Serenity Reports</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0.min.js"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+
+
+
+
+    <script class="code" type="text/javascript">$(document).ready(function () {
+
+            $("#scenario-results").DataTable({
+                "order": [[0, "asc",], [1, "asc",], [2, "asc",]],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                },
+                columnDefs: [
+                    {
+                        targets: 4,
+                        visible: false
+                    },
+                    {type: 'time-elapsed-dhms', targets: 6}
+                ]
+            })
+            $("#manual-scenario-results").DataTable({
+                "order": [[0, "asc",], [1, "asc",]],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                },
+                columnDefs: [
+                    {
+                        targets: 4,
+                        visible: false
+                    },
+                ]
+            })
+
+            // Results table
+            $('#test-results-table').DataTable({
+                "order": [[0, "asc",], [3, "asc",]],
+                "pageLength": 10,
+                "lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]]
+            });
+
+            $('#evidence-table').DataTable({
+                searching: false,
+                paging: false,
+                info: false
+            });
+
+            $(".feature-coverage-table").DataTable({
+                searching: true,
+                paging: false,
+                info: false,
+                language: {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                },
+                columnDefs: [
+                    {
+                        targets: 2,
+                        visible: false
+                    },
+                ]
+            });
+
+            $(".feature-coverage-table-with-pagination").DataTable({
+                searching: true,
+                order: [[0, "asc",]],
+                pageLength: 10,
+                language: {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                },
+                columnDefs: [
+                    {
+                        targets: 2,
+                        visible: false
+                    },
+                ]
+            });
+        });
+    </script>
+</head>
+
+<body class="results-page">
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Serenity/JS with Playwright Test</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+
+
+    <div id="contenttop">
+        <div class="middlebg">
+        <span class="breadcrumbs"><a href="index.html">Home</a>
+                    > Platform 
+                > <span class="truncate-60">
+                Linux 6.8.0-1017-Azure
+            </span>
+        </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="dafb266f68444cb7f2451c923d70c1428ac45470c361842b818e6daa9bcd4fa8.html"><i class="bi bi-chat-text"></i> Themes</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="bi bi-chat-text"></i> Capabilities</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 14-12-2024 01:04:10</span>
+    <br style="clear:left"/>
+</div>
+    <div class="clr"></div>
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="middlb">
+            <div class="table">
+
+                <h2><i class='bi bi-tags'></i> Platform: Linux 6.8.0-1017-Azure</h2>
+                <table class='overview'>
+                    <tr>
+                        <td width="375px" valign="top">
+                            <div class="test-count-summary">
+                                <div class="test-count-title">
+                                    18 tests
+
+                                     |
+                                        <a href="465bf05c9e90e7a78c1f45467a6717198240ceeed62c70eb8a78e3704c1f645e.csv" title="Download CSV"> <i class="bi bi-cloud-arrow-down"
+                                                                                        title="Download CSV"></i></a>
+
+
+                                </div>
+                            </div>
+
+                            <div>
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#summary"><i class="bi bi-house-door"></i>
+                                            Summary</a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#tests"><i class="bi bi-speedometer"></i> Test
+                                            Results</a>
+                                    </li>
+                                </ul>
+
+
+                                <div class="card border">
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div id="summary" class="tab-pane fade in active">
+                                            <div class="container-fluid">
+                                                <div class="dashboard-charts row">
+                                                    <div class="col-lg-4 col-md-6 col-sm-9">
+                                                        <!-- PIE CHART -->
+                                                        <h4><i class="bi bi-pie-chart"></i> Overview</h4>
+                                                            <div class="chart-container">
+                                                                <canvas id="resultChart" height="200px"></canvas>
+                                                            </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6 col-sm-9">
+                                                        <h4><i class="bi bi-check-square"></i> Test Outcomes</h4>
+                                                        <!-- Severity bar chart -->
+                                                        <div class="chart-container">
+                                                            <canvas id="severityChart" height="200px"></canvas>
+                                                        </div>
+                                                    </div>
+                                                        <div class="col-lg-4 col-md-6 col-sm-9">
+                                                            <h4><i class="bi bi-graph-up"></i> Test Performance</h4>
+
+                                                            <!-- Duration bar chart -->
+                                                            <div class="chart-container">
+                                                                <canvas id="durationChart" height="200px"></canvas>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                        <div class="col-lg-8 col-md-8 col-sm-9">
+                                                            <!-- High level coverage bar chart -->
+                                                            <div class="chart-container">
+                                                                <h3><i class="bi bi-reception-3"></i> Functional
+                                                                    Coverage Overview</h3>
+                                                                <h4>Features</h4>
+                                                                <canvas id="coverageChart"></canvas>
+                                                            </div>
+                                                        </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-6">
+    <div>
+        <h3><i class="bi bi-speedometer2"></i> Key Statistics</h3>
+        <div>
+            <table class="table table-striped table-hover">
+                <tbody>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-card-checklist"></i> Number of Scenarios
+                    </td>
+                    <td>18</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-caret-right"></i> Total Number of Test Cases
+                    </td>
+                    <td>18</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-flag-fill"></i> Tests Started
+                    </td>
+                    <td>Dec 14, 2024 01:03:30</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stop-circle"></i> Tests
+                        Finished
+                    </td>
+                    <td></td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stopwatch"></i> Total
+                        Duration
+                    </td>
+                    <td>0ms</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-trophy"></i> Fastest Test
+                    </td>
+                    <td>337ms</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-skip-start"></i> Slowest
+                        Test
+                    </td>
+                    <td>4s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stopwatch"></i> Average
+                        Execution Time
+                    </td>
+                    <td>1s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stopwatch-fill"></i> Total
+                        Execution Time
+                    </td>
+                    <td>33s</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-sm-11">
+                                                            <h3>Functional Coverage Details</h3>
+
+
+                                                                    <h4>Features</h4>
+
+                                                                    <table class="table feature-coverage-table" id="Feature" style="width:100%">
+                                                                        <thead>
+                                                                        <tr>
+                                                                            <th>Feature</th>
+                                                                            <th style="width:1em;">Scenarios</th>
+                                                                            <th style="width:1em;">StepsText</th>
+                                                                            <th style="width:1em;">Test&nbsp;Cases</th>
+                                                                            <th style="width:1em;">%&nbsp;Pass</th>
+                                                                            <th style="width:1em;">Result</th>
+                                                                            <th>Coverage</th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                            <a href="9ce40a2d624b648140830704bf22f01fe99595d46804d8fd7afa9b67a3af9b88.html"> Dropdown</a>
+                                                                                    </td>
+                                                                                    <td>18</td>
+                                                                                    <td>Tess ensures that placeholder of dropdown does eventually equal "Select option"
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess ensures that available options of dropdown does eventually equal [ "First", "Second", "Third" ]
+Tess selects [ 'First', 'Third' ] from dropdown
+Tess iterates over [ 'First', 'Third' ]
+Tess selects 'First' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "First"
+Tess selects 'Third' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Third"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Third"
+Tess ensures that selected options does equal [ "First", "Third" ]
+Tess selects [ 'First', 'Third' ] from dropdown
+Tess iterates over [ 'First', 'Third' ]
+Tess selects 'First' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "First"
+Tess takes notes:
+- selectedOptions: [ "First" ]
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "First"
+Tess selects 'Third' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Third"
+Tess takes notes:
+- selectedOptions: [ "First", "Third" ]
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Third"
+Tess ensures that [ "First", "Third" ] does eventually equal [ "First", "Third" ]
+Tess selects [ 'First', 'Third', 'Second' ] from dropdown
+Tess iterates over [ 'First', 'Third', 'Second' ]
+Tess selects 'First' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "First"
+Tess selects 'Third' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Third"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Third"
+Tess selects 'Second' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Second"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Second"
+Tess deselects [ 'First' ] from dropdown
+Tess iterates over [ 'First' ]
+Tess deselects 'First' from dropdown
+Tess clicks on deselect button of the first of page elements located by css ('.dropdown-selected-option') of input field where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does not contain "First"
+Tess ensures that selected options does equal [ "Third", "Second" ]
+Tess selects [ 'First', 'Second' ] from dropdown
+Tess iterates over [ 'First', 'Second' ]
+Tess selects 'First' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "First"
+Tess selects 'Second' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Second"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Second"
+Tess deselects [ 'First', 'Second' ] from dropdown
+Tess iterates over [ 'First', 'Second' ]
+Tess deselects 'First' from dropdown
+Tess clicks on deselect button of the first of page elements located by css ('.dropdown-selected-option') of input field where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does not contain "First"
+Tess deselects 'Second' from dropdown
+Tess clicks on deselect button of the first of page elements located by css ('.dropdown-selected-option') of input field where Text does include "Second"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does not contain "Second"
+Tess ensures that 0 does equal 0
+Tess ensures that placeholder of dropdown does equal "Select option"
+Tess ensures that placeholder of dropdown does eventually equal "Select option"
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess ensures that available options of dropdown does eventually equal [ "First", "Second", "Third" ]
+Tess selects [ 'First', 'Third' ] from dropdown
+Tess iterates over [ 'First', 'Third' ]
+Tess selects 'First' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "First"
+Tess selects 'Third' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Third"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Third"
+Tess ensures that selected options does equal [ "First", "Third" ]
+Tess selects [ 'First', 'Third' ] from dropdown
+Tess iterates over [ 'First', 'Third' ]
+Tess selects 'First' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "First"
+Tess takes notes:
+- selectedOptions: [ "First" ]
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "First"
+Tess selects 'Third' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Third"
+Tess takes notes:
+- selectedOptions: [ "First", "Third" ]
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Third"
+Tess ensures that [ "First", "Third" ] does eventually equal [ "First", "Third" ]
+Tess selects [ 'First', 'Third', 'Second' ] from dropdown
+Tess iterates over [ 'First', 'Third', 'Second' ]
+Tess selects 'First' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "First"
+Tess selects 'Third' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Third"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Third"
+Tess selects 'Second' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Second"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Second"
+Tess deselects [ 'First' ] from dropdown
+Tess iterates over [ 'First' ]
+Tess deselects 'First' from dropdown
+Tess clicks on deselect button of the first of page elements located by css ('.dropdown-selected-option') of input field where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does not contain "First"
+Tess ensures that selected options does equal [ "Third", "Second" ]
+Tess selects [ 'First', 'Second' ] from dropdown
+Tess iterates over [ 'First', 'Second' ]
+Tess selects 'First' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "First"
+Tess selects 'Second' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Second"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Second"
+Tess deselects [ 'First', 'Second' ] from dropdown
+Tess iterates over [ 'First', 'Second' ]
+Tess deselects 'First' from dropdown
+Tess clicks on deselect button of the first of page elements located by css ('.dropdown-selected-option') of input field where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does not contain "First"
+Tess deselects 'Second' from dropdown
+Tess clicks on deselect button of the first of page elements located by css ('.dropdown-selected-option') of input field where Text does include "Second"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does not contain "Second"
+Tess ensures that 0 does equal 0
+Tess ensures that placeholder of dropdown does equal "Select option"
+Tess ensures that placeholder of dropdown does eventually equal "Select option"
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess ensures that available options of dropdown does eventually equal [ "First", "Second", "Third" ]
+Tess selects [ 'First', 'Third' ] from dropdown
+Tess iterates over [ 'First', 'Third' ]
+Tess selects 'First' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "First"
+Tess selects 'Third' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Third"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Third"
+Tess ensures that selected options does equal [ "First", "Third" ]
+Tess selects [ 'First', 'Third' ] from dropdown
+Tess iterates over [ 'First', 'Third' ]
+Tess selects 'First' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "First"
+Tess takes notes:
+- selectedOptions: [ "First" ]
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "First"
+Tess selects 'Third' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Third"
+Tess takes notes:
+- selectedOptions: [ "First", "Third" ]
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Third"
+Tess ensures that [ "First", "Third" ] does eventually equal [ "First", "Third" ]
+Tess selects [ 'First', 'Third', 'Second' ] from dropdown
+Tess iterates over [ 'First', 'Third', 'Second' ]
+Tess selects 'First' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "First"
+Tess selects 'Third' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Third"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Third"
+Tess selects 'Second' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Second"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Second"
+Tess deselects [ 'First' ] from dropdown
+Tess iterates over [ 'First' ]
+Tess deselects 'First' from dropdown
+Tess clicks on deselect button of the first of page elements located by css ('.dropdown-selected-option') of input field where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does not contain "First"
+Tess ensures that selected options does equal [ "Third", "Second" ]
+Tess selects [ 'First', 'Second' ] from dropdown
+Tess iterates over [ 'First', 'Second' ]
+Tess selects 'First' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "First"
+Tess selects 'Second' from dropdown
+Tess opens the dropdown
+Tess checks whether CSS classes of dropdown does not contain "dropdown-expanded"
+Tess clicks on input field
+Tess waits until page element located by css ('.dropdown-available-options') does become visible
+Tess clicks on the first of page elements located by css ('.dropdown-available-option') of page element located by css ('.dropdown-available-options') where Text does include "Second"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does contain at least one item that does start with "Second"
+Tess deselects [ 'First', 'Second' ] from dropdown
+Tess iterates over [ 'First', 'Second' ]
+Tess deselects 'First' from dropdown
+Tess clicks on deselect button of the first of page elements located by css ('.dropdown-selected-option') of input field where Text does include "First"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does not contain "First"
+Tess deselects 'Second' from dropdown
+Tess clicks on deselect button of the first of page elements located by css ('.dropdown-selected-option') of input field where Text does include "Second"
+Tess ensures that the text of page elements located by css ('.dropdown-selected-option') of input field does not contain "Second"
+Tess ensures that 0 does equal 0
+Tess ensures that placeholder of dropdown does equal "Select option"
+</td>
+                                                                                    <td>18</td>
+                                                                                    <td>100%</td>
+                                                                                    <td>
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="progress">
+                                                                                                <div class="progress-bar"
+                                                                                                     role="progressbar"
+                                                                                                     style="width: 100%; background-color: #b0cf73"
+                                                                                                     aria-valuenow="18"
+                                                                                                     title="100% success"
+                                                                                                     aria-valuemin="0"
+                                                                                                     aria-valuemax="100">
+                                                                                                </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                        </div>
+                                                    </div>
+
+                                            </div>
+                                            <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Tags</h3>
+                    <div class="card">
+                        <div class="card-body">
+                            <div>
+                                    <a href="8afd86945a1a25b13fc1ac5043b29b159f5150952aa7fc6951378729e9e4cd4f.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Retried&nbsp;&nbsp;&nbsp;18
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Browser</h5>
+                            <div>
+                                    <a href="bc6a2d1431adfa77ef09330b433ba64d0269ab57f9b7bc82dd1531fad2ed6f87.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Webkit 18.2&nbsp;&nbsp;&nbsp;6
+                                    </span>
+                                    </a>
+                                    <a href="3ffbb714e970a01c2b852de3cdeb776428641bdc6974bfeb478cdd59ed66f56e.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Firefox 132.0&nbsp;&nbsp;&nbsp;6
+                                    </span>
+                                    </a>
+                                    <a href="c669f0f7d80e1cf1eee4d26b6f7324c7e8640e32acc955a7944f5cd2e666c44a.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Chromium 131.0.6778.33&nbsp;&nbsp;&nbsp;6
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Capability</h5>
+                            <div>
+                                    <a href="663f77c709b1684bcfed7ad2a559013d5a1660f7546f771cfad6580771b03a0f.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Components/Dropdown&nbsp;&nbsp;&nbsp;18
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Feature</h5>
+                            <div>
+                                    <a href="9ce40a2d624b648140830704bf22f01fe99595d46804d8fd7afa9b67a3af9b88.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Components/Dropdown/Dropdown&nbsp;&nbsp;&nbsp;18
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Platform</h5>
+                            <div>
+                                    <a href="465bf05c9e90e7a78c1f45467a6717198240ceeed62c70eb8a78e3704c1f645e.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Linux 6.8.0-1017-Azure&nbsp;&nbsp;&nbsp;18
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Theme</h5>
+                            <div>
+                                    <a href="79eecfdc12fce88e0017d9237ffba3e9e69dd37c7839c4c496990a46a6e660e8.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Components&nbsp;&nbsp;&nbsp;18
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+                                            </div>
+                                        </div>
+                                        <div id="tests" class="tab-pane fade">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+    <div>
+        <h3><i class="bi bi-speedometer2"></i> Key Statistics</h3>
+        <div>
+            <table class="table table-striped table-hover">
+                <tbody>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-card-checklist"></i> Number of Scenarios
+                    </td>
+                    <td>18</td>
+                    <td>
+                        <i class="bi bi-stopwatch"></i> Total
+                        Duration
+                    </td>
+                    <td>0ms</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-caret-right"></i> Total Number of Test Cases
+                    </td>
+                    <td>18</td>
+                    <td>
+                        <i class="bi bi-trophy"></i> Fastest Test
+                    </td>
+                    <td>337ms</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-person"></i> Number of Manual Test Cases
+                    </td>
+                    <td>0</td>
+                    <td>
+                        <i class="bi bi-skip-start"></i> Slowest
+                        Test
+                    </td>
+                    <td>4s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-flag-fill"></i> Tests Started
+                    </td>
+                    <td>Dec 14, 2024 01:03:30</td>
+                    <td>
+                        <i class="bi bi-stopwatch"></i> Average
+                        Execution Time
+                    </td>
+                    <td>1s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stop-circle"></i> Tests
+                        Finished
+                    </td>
+                    <td></td>
+                    <td>
+                        <i class="bi bi-stopwatch-fill"></i> Total
+                        Execution Time
+                    </td>
+                    <td>33s</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+                                                        <h3><i class="bi bi-gear"></i> Automated Scenarios</h3>
+
+                                                            <table class="scenario-result-table table" id="scenario-results" style="width:100%">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>feature</th>
+                                                                    <th class="test-name-column">Scenario</th>
+                                                                    <th>Context</th>
+                                                                    <th>Steps</th>
+                                                                    <th>StepsText</th>
+                                                                    <th>Started</th>
+                                                                    <th>Total Duration</th>
+                                                                    <th>Result</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="shows the placeholder when no option is selected yet">
+                                                                                    <a href="d0dceccb9b25553a45113dd0b171c55ab4e243b01cfcd27893d58228d7e85a7c.html">shows the placeholder when no option is selected yet</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i></span><span style="display:none">linux,Chrome</span>
+                                                                        </td>
+                                                                        <td>1</td>
+                                                                        <td>Tess ensures that placeholder of dropdown does eventually equal "Select option"
+</td>
+                                                                        <td data-order="1734138210">01:03:30</td>
+                                                                        <td>337ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="shows the available options when the menu is expanded">
+                                                                                    <a href="bcdc714f6354d9c21c261ce4973f55999151b78351f3002053a407361b1d9fdb.html">shows the available options when the menu is expanded</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i></span><span style="display:none">linux,Chrome</span>
+                                                                        </td>
+                                                                        <td>2</td>
+                                                                        <td>Tess opens the dropdown
+Tess ensures that available options of dropdown does eventually equal [ "First", "Second", "Third" ]
+</td>
+                                                                        <td data-order="1734138210">01:03:30</td>
+                                                                        <td>558ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="selects the desired options">
+                                                                                    <a href="1d2ace35b9fae3817fcd6f1775094c17fd90f99cba0864ef1437b48ff668b2c6.html">selects the desired options</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i></span><span style="display:none">linux,Chrome</span>
+                                                                        </td>
+                                                                        <td>2</td>
+                                                                        <td>Tess selects [ 'First', 'Third' ] from dropdown
+Tess ensures that selected options does equal [ "First", "Third" ]
+</td>
+                                                                        <td data-order="1734138211">01:03:31</td>
+                                                                        <td>1s 418ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="triggers onChange with selected options">
+                                                                                    <a href="42667f2258dc969e4378ffb84edc6614ca12375c3d6438ffb318955c1b1f2220.html">triggers onChange with selected options</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i></span><span style="display:none">linux,Chrome</span>
+                                                                        </td>
+                                                                        <td>2</td>
+                                                                        <td>Tess selects [ 'First', 'Third' ] from dropdown
+Tess ensures that [ "First", "Third" ] does eventually equal [ "First", "Third" ]
+</td>
+                                                                        <td data-order="1734138212">01:03:32</td>
+                                                                        <td>1s 561ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="allows for selected options to be deselected">
+                                                                                    <a href="756886f84196d157a6d371157f03e292fabe824492c3e5ef73e242676d7227e0.html">allows for selected options to be deselected</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i></span><span style="display:none">linux,Chrome</span>
+                                                                        </td>
+                                                                        <td>3</td>
+                                                                        <td>Tess selects [ 'First', 'Third', 'Second' ] from dropdown
+Tess deselects [ 'First' ] from dropdown
+Tess ensures that selected options does equal [ "Third", "Second" ]
+</td>
+                                                                        <td data-order="1734138214">01:03:34</td>
+                                                                        <td>2s 296ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="goes back to showing the placeholder when all the selected options get deselected">
+                                                                                    <a href="366630d631b78eb9ed1719394bd085d1ecbeddd73e09be6a6887bc70e7f12f46.html">goes back to showing the placeholder when all the selected options get deselected</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i></span><span style="display:none">linux,Chrome</span>
+                                                                        </td>
+                                                                        <td>4</td>
+                                                                        <td>Tess selects [ 'First', 'Second' ] from dropdown
+Tess deselects [ 'First', 'Second' ] from dropdown
+Tess ensures that 0 does equal 0
+Tess ensures that placeholder of dropdown does equal "Select option"
+</td>
+                                                                        <td data-order="1734138216">01:03:36</td>
+                                                                        <td>1s 932ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="shows the placeholder when no option is selected yet">
+                                                                                    <a href="495c21b3a57e560f549ab8f17a77701d6d662973a227a9a0f8affcb7d7d1d720.html">shows the placeholder when no option is selected yet</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-firefox' title='Firefox'></i></span><span style="display:none">linux,Firefox</span>
+                                                                        </td>
+                                                                        <td>1</td>
+                                                                        <td>Tess ensures that placeholder of dropdown does eventually equal "Select option"
+</td>
+                                                                        <td data-order="1734138219">01:03:39</td>
+                                                                        <td>1s 704ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="shows the available options when the menu is expanded">
+                                                                                    <a href="1a2db9b6392f2d2d98d00654fa3412bfe2c7b9711453940413c0b03f765cb27d.html">shows the available options when the menu is expanded</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-firefox' title='Firefox'></i></span><span style="display:none">linux,Firefox</span>
+                                                                        </td>
+                                                                        <td>2</td>
+                                                                        <td>Tess opens the dropdown
+Tess ensures that available options of dropdown does eventually equal [ "First", "Second", "Third" ]
+</td>
+                                                                        <td data-order="1734138220">01:03:40</td>
+                                                                        <td>482ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="selects the desired options">
+                                                                                    <a href="878c8bec56a11346b3db0d7a6bbdab289f5b8cb9f72ed362ea705da36f1e6281.html">selects the desired options</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-firefox' title='Firefox'></i></span><span style="display:none">linux,Firefox</span>
+                                                                        </td>
+                                                                        <td>2</td>
+                                                                        <td>Tess selects [ 'First', 'Third' ] from dropdown
+Tess ensures that selected options does equal [ "First", "Third" ]
+</td>
+                                                                        <td data-order="1734138221">01:03:41</td>
+                                                                        <td>1s 047ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="triggers onChange with selected options">
+                                                                                    <a href="3b564a08e03d78a15832f7595ea86dc16f9bf198c094c209f60c87f9aff3ad4f.html">triggers onChange with selected options</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-firefox' title='Firefox'></i></span><span style="display:none">linux,Firefox</span>
+                                                                        </td>
+                                                                        <td>2</td>
+                                                                        <td>Tess selects [ 'First', 'Third' ] from dropdown
+Tess ensures that [ "First", "Third" ] does eventually equal [ "First", "Third" ]
+</td>
+                                                                        <td data-order="1734138222">01:03:42</td>
+                                                                        <td>1s 163ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="allows for selected options to be deselected">
+                                                                                    <a href="664cd2d17ec86226aa0ff692b028924c6865993e73c94bf04a9977302df10010.html">allows for selected options to be deselected</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-firefox' title='Firefox'></i></span><span style="display:none">linux,Firefox</span>
+                                                                        </td>
+                                                                        <td>3</td>
+                                                                        <td>Tess selects [ 'First', 'Third', 'Second' ] from dropdown
+Tess deselects [ 'First' ] from dropdown
+Tess ensures that selected options does equal [ "Third", "Second" ]
+</td>
+                                                                        <td data-order="1734138223">01:03:43</td>
+                                                                        <td>1s 693ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="goes back to showing the placeholder when all the selected options get deselected">
+                                                                                    <a href="927fde609f5d9ba66f63da8a9fe4ef88e8e7dcabf0aabb59d6f7207811c9439d.html">goes back to showing the placeholder when all the selected options get deselected</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-firefox' title='Firefox'></i></span><span style="display:none">linux,Firefox</span>
+                                                                        </td>
+                                                                        <td>4</td>
+                                                                        <td>Tess selects [ 'First', 'Second' ] from dropdown
+Tess deselects [ 'First', 'Second' ] from dropdown
+Tess ensures that 0 does equal 0
+Tess ensures that placeholder of dropdown does equal "Select option"
+</td>
+                                                                        <td data-order="1734138225">01:03:45</td>
+                                                                        <td>1s 457ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="shows the placeholder when no option is selected yet">
+                                                                                    <a href="8452ef7bc449c7589efa46cd1aa08f2ce3eaa1074a580a86d1a64760ee8fbd1c.html">shows the placeholder when no option is selected yet</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-safari' title='Safari or WebKit'></i></span><span style="display:none">linux,Safari or WebKit</span>
+                                                                        </td>
+                                                                        <td>1</td>
+                                                                        <td>Tess ensures that placeholder of dropdown does eventually equal "Select option"
+</td>
+                                                                        <td data-order="1734138227">01:03:47</td>
+                                                                        <td>1s 566ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="shows the available options when the menu is expanded">
+                                                                                    <a href="1ac19f3d9605d303f85987a529e901e3832b9ce704b820cebfdd56657e0c9084.html">shows the available options when the menu is expanded</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-safari' title='Safari or WebKit'></i></span><span style="display:none">linux,Safari or WebKit</span>
+                                                                        </td>
+                                                                        <td>2</td>
+                                                                        <td>Tess opens the dropdown
+Tess ensures that available options of dropdown does eventually equal [ "First", "Second", "Third" ]
+</td>
+                                                                        <td data-order="1734138229">01:03:49</td>
+                                                                        <td>1s 666ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="selects the desired options">
+                                                                                    <a href="9f2327fbd05bf554705dc7f8e6ae8fd04601d27c0a74a8fac8467020d0d3f22f.html">selects the desired options</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-safari' title='Safari or WebKit'></i></span><span style="display:none">linux,Safari or WebKit</span>
+                                                                        </td>
+                                                                        <td>2</td>
+                                                                        <td>Tess selects [ 'First', 'Third' ] from dropdown
+Tess ensures that selected options does equal [ "First", "Third" ]
+</td>
+                                                                        <td data-order="1734138231">01:03:51</td>
+                                                                        <td>2s 914ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="triggers onChange with selected options">
+                                                                                    <a href="9a750edbf3ebb9ae973727f9c72c49e0a34fe70dad12c321897a529294d18300.html">triggers onChange with selected options</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-safari' title='Safari or WebKit'></i></span><span style="display:none">linux,Safari or WebKit</span>
+                                                                        </td>
+                                                                        <td>2</td>
+                                                                        <td>Tess selects [ 'First', 'Third' ] from dropdown
+Tess ensures that [ "First", "Third" ] does eventually equal [ "First", "Third" ]
+</td>
+                                                                        <td data-order="1734138234">01:03:54</td>
+                                                                        <td>3s 243ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="allows for selected options to be deselected">
+                                                                                    <a href="f9c09d1214fe58c17b5a4cabab084bc98812decf2a04f02481f512e49d5b8caa.html">allows for selected options to be deselected</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-safari' title='Safari or WebKit'></i></span><span style="display:none">linux,Safari or WebKit</span>
+                                                                        </td>
+                                                                        <td>3</td>
+                                                                        <td>Tess selects [ 'First', 'Third', 'Second' ] from dropdown
+Tess deselects [ 'First' ] from dropdown
+Tess ensures that selected options does equal [ "Third", "Second" ]
+</td>
+                                                                        <td data-order="1734138237">01:03:57</td>
+                                                                        <td>4s 738ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="#">Dropdown</a>
+                                                                        </td>
+                                                                        <td data-order="goes back to showing the placeholder when all the selected options get deselected">
+                                                                                    <a href="4490ca0d92306c32897c233cf166896d62558f1424335a6ed1bca3b0b43c8c0c.html">goes back to showing the placeholder when all the selected options get deselected</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-safari' title='Safari or WebKit'></i></span><span style="display:none">linux,Safari or WebKit</span>
+                                                                        </td>
+                                                                        <td>4</td>
+                                                                        <td>Tess selects [ 'First', 'Second' ] from dropdown
+Tess deselects [ 'First', 'Second' ] from dropdown
+Tess ensures that 0 does equal 0
+Tess ensures that placeholder of dropdown does equal "Select option"
+</td>
+                                                                        <td data-order="1734138242">01:04:02</td>
+                                                                        <td>4s 083ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h3><i class="bi bi-hand-index-thumb"></i> Manual Tests</h3>
+
+                                                            No manual tests were recorded
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Tags</h3>
+                    <div class="card">
+                        <div class="card-body">
+                            <div>
+                                    <a href="8afd86945a1a25b13fc1ac5043b29b159f5150952aa7fc6951378729e9e4cd4f.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Retried&nbsp;&nbsp;&nbsp;18
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Browser</h5>
+                            <div>
+                                    <a href="bc6a2d1431adfa77ef09330b433ba64d0269ab57f9b7bc82dd1531fad2ed6f87.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Webkit 18.2&nbsp;&nbsp;&nbsp;6
+                                    </span>
+                                    </a>
+                                    <a href="3ffbb714e970a01c2b852de3cdeb776428641bdc6974bfeb478cdd59ed66f56e.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Firefox 132.0&nbsp;&nbsp;&nbsp;6
+                                    </span>
+                                    </a>
+                                    <a href="c669f0f7d80e1cf1eee4d26b6f7324c7e8640e32acc955a7944f5cd2e666c44a.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Chromium 131.0.6778.33&nbsp;&nbsp;&nbsp;6
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Capability</h5>
+                            <div>
+                                    <a href="663f77c709b1684bcfed7ad2a559013d5a1660f7546f771cfad6580771b03a0f.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Components/Dropdown&nbsp;&nbsp;&nbsp;18
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Feature</h5>
+                            <div>
+                                    <a href="9ce40a2d624b648140830704bf22f01fe99595d46804d8fd7afa9b67a3af9b88.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Components/Dropdown/Dropdown&nbsp;&nbsp;&nbsp;18
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Platform</h5>
+                            <div>
+                                    <a href="465bf05c9e90e7a78c1f45467a6717198240ceeed62c70eb8a78e3704c1f645e.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Linux 6.8.0-1017-Azure&nbsp;&nbsp;&nbsp;18
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Theme</h5>
+                            <div>
+                                    <a href="79eecfdc12fce88e0017d9237ffba3e9e69dd37c7839c4c496990a46a6e660e8.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Components&nbsp;&nbsp;&nbsp;18
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="beforefooter"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <span class="version">Serenity BDD version 4.1.20</span>
+        </div>
+    </div>
+</div>
+
+<!-- Chart data -->
+    <!-- PIE CHART -->
+    <script>
+
+        // The results pie chart
+        const outcomeChartCtx = document.getElementById('resultChart');
+
+        // Options define for display value on top of bars
+        const outcomeDetailsReports = [
+            { title: 'Passing Test Cases', link: "873a292bd31fb9aea35ef4b7446e7ba772b61f5dab5531007b0b0ec2fbb69a49.html" },
+            { title: 'Pending Test Cases', link: "b8c286e7c08bb5b506f378b14d7912250727de6606ffaeceb3ecc490e06449e0.html" },
+            { title: 'Ignored Test Cases', link: "5fdca2e96880f61942ffde0a599e8d9b7e0ad172a4cb8bfe79742a85ccb89f76.html" },
+            { title: 'Skipped Test Cases', link: "20912588b654828e3c15006cbe1371a57b887b5b0a0686f2d3b45e1c4aa56ff0.html" },
+            { title: 'Aborted Test Cases',  link: "76e67eb3762e9f598a3734cba84ce0e2a3083fd69e1e062effddc5dcfbae003e.html"},
+            { title: 'Failed Test Cases', link: "f5f8f6559c5d98d6cabe90f3ab6bde0483f2c3d96ec3126f2e063c8a0dc0290a.html"  },
+            { title: 'Broken Test Cases', link: "3e9e69e0516aa8146b985ba16ceabc0e32261c3d8c8dbbb491ca252cc5f49eb5.html"    },
+            { title: 'Compromised Test Cases',  link: "8e50c815f7a3afbb4b236efae307e846c33f844aa161bd03d32f92b64b7d7e02.html" },
+        ]
+        const outcomeData = {
+            labels: ['Passing Test Cases', 'Pending Test Cases', 'Ignored Test Cases', 'Skipped Test Cases', 'Aborted Test Cases', 'Failed Test Cases', 'Broken Test Cases', 'Compromised Test Cases','Undefined Test Cases'],
+            datasets: [{
+                label: 'Test Results',
+                fill: false,
+                data: [18,0,0,0,0,0,0,0],
+                backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
+                borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                borderWidth: 1,
+            }]
+        }
+        const outcomeOptions = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        let sum = 0;
+                        let dataArr = ctx.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum += data;
+                        });
+                        let percentage = (value * 100 / sum).toFixed(0) + "%";
+                        if (percentage === '0%' || percentage === 'NaN%') {
+                            return '';
+                        } else {
+                            return percentage;
+                        }
+                    },
+                },
+            }
+        }
+
+        const outcomeChart = new Chart(outcomeChartCtx, {
+            type: 'doughnut',
+            data: outcomeData,
+            options: outcomeOptions,
+            plugins: [
+                {
+                    id: 'text',
+                    beforeDraw: function (chart, a, b) {
+                        var width = chart.width,
+                            height = chart.height,
+                            ctx = chart.ctx;
+
+                        ctx.restore();
+                        var fontSize = (height / 200).toFixed(1);
+                        ctx.font = fontSize + "em sans-serif";
+                        ctx.textBaseline = "middle";
+
+                        var text = "100%"
+                        textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
+                        textY = (height / 2) - 40;
+
+                        ctx.fillText(text, textX, textY);
+                        ctx.save();
+                    }
+                }]
+        });
+
+        function clickHandler(click) {
+            const points = outcomeChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(outcomeDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+        outcomeChartCtx.onclick = clickHandler;
+    </script>
+    <!-- END PIE CHART -->
+
+    <!-- SUMMARY BAR CHART -->
+    <script>
+
+        // The Severity bar chart
+        const severityChartCtx = document.getElementById('severityChart');
+
+        // Options define for display value on top of bars
+
+        const severityDetailsReports = [
+            { title: 'Passing Scenarios', link: "873a292bd31fb9aea35ef4b7446e7ba772b61f5dab5531007b0b0ec2fbb69a49.html" },
+            { title: 'Pending Scenarios', link: "b8c286e7c08bb5b506f378b14d7912250727de6606ffaeceb3ecc490e06449e0.html" },
+            { title: 'Ignored Scenarios', link: "5fdca2e96880f61942ffde0a599e8d9b7e0ad172a4cb8bfe79742a85ccb89f76.html" },
+            { title: 'Skipped Scenarios', link: "20912588b654828e3c15006cbe1371a57b887b5b0a0686f2d3b45e1c4aa56ff0.html" },
+            { title: 'Aborted Scenarios',  link: "76e67eb3762e9f598a3734cba84ce0e2a3083fd69e1e062effddc5dcfbae003e.html"},
+            { title: 'Failed Scenarios', link: "f5f8f6559c5d98d6cabe90f3ab6bde0483f2c3d96ec3126f2e063c8a0dc0290a.html"  },
+            { title: 'Broken Scenarios', link: "3e9e69e0516aa8146b985ba16ceabc0e32261c3d8c8dbbb491ca252cc5f49eb5.html"    },
+            { title: 'Compromised Scenarios',  link: "8e50c815f7a3afbb4b236efae307e846c33f844aa161bd03d32f92b64b7d7e02.html" },
+        ]
+        const severityData = {
+            labels: ['Passing', 'Pending', 'Ignored', 'Skipped', 'Aborted', 'Failed', 'Broken', 'Compromised'],
+            datasets: [
+                {
+                    label: 'Automated',
+                    data: [18,0,0,0,0,0,0,0],
+                    backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
+                    borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                    borderWidth: 1
+                },
+                {
+                    label: 'Manual',
+                    data: [0,0,0,0,0,0,0,0],
+                    backgroundColor: ['rgba(153,204,51,0.25)','rgba(165, 199, 238, 0.25)','rgba(168, 168, 168, 0.25)','rgba(238, 224, 152, 0.375)','rgba(255, 153, 102, 0.25)','rgba(255, 22, 49, 0.25)','rgba(255, 97, 8, 0.25)','rgba(255, 104, 255, 0.25)','rgba(83, 50, 168, 0.25)'],
+                    borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                    borderWidth: 1
+                },
+
+            ]
+        }
+        const severityOptions = {
+            responsive: true,
+            skipNull: true,
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true,
+                }
+            },
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        if (value === 0) {
+                            return '';
+                        } else {
+                            return value;
+                        }
+                    },
+                }
+            }
+        }
+        const severityChart = new Chart(severityChartCtx, {
+            type: 'bar',
+            data: severityData,
+            options: severityOptions
+        });
+
+        function clickHandler(click) {
+            const points = severityChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(severityDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+        severityChartCtx.onclick = clickHandler;
+    </script>
+    <!-- END SUMMARY CHART -->
+
+    <!-- DURATION CHART -->
+    <script>
+
+        // Options define for display value on top of bars
+        const durationDetailsReports = [
+                {title: "Under 1 second", link: "401284512ed150cdaec8a2a18e2e38c1f37b44902fc690b604e44065931a7491.html"},
+                {title: "1 to 10 seconds", link: "ed51b50f447e4e1dfca88650356e160cbd2ed7fe56e50752e99367f682bcbd76.html"},
+                {title: "10 to 30 seconds", link: "b81c705b70b5903364c4372900d18f8a58e3f142723eee81efd0f99a67a5c90d.html"},
+                {title: "30 to 60 seconds", link: "84f22c2675931d749fa26a039a0e89502523adb83da01a1248a5597dd495e96b.html"},
+                {title: "1 to 2 minutes", link: "762ebb615397f78df1247ac003542d2c96ec752ef6796fb14287e53f50170fee.html"},
+                {title: "2 to 5 minutes", link: "071980a110d964ed2397dd8eaf039844b12e0df46560981a8d1b60805cd65c13.html"},
+                {title: "5 to 10 minutes", link: "388f668e76251d092e6774c7eefdb2a4b3b57b8aec583455656dd131591d7690.html"},
+                {title: "10 minutes or over", link: "2f51becd8c829117c4bfb4b6232359a56a93b2fa739eff28d56fbe9bc9abd156.html"},
+        ]
+        // The Severity bar chart
+        const durationChartCtx = document.getElementById('durationChart');
+
+        // Options define for display value on top of bars
+
+        const durationData = {
+            labels: ['Under 1 second','1 to 10 seconds','10 to 30 seconds','30 to 60 seconds','1 to 2 minutes','2 to 5 minutes','5 to 10 minutes','10 minutes or over'],
+            datasets: [{
+                label: 'Number of tests per duration',
+                fill: false,
+                data: ['3','15','0','0','0','0','0','0'],
+                backgroundColor: 'rgba(83, 146, 255,0.5)',
+                borderColor: 'rgba(83, 146, 255, 1)',
+            }]
+        }
+        const durationOptions = {
+            responsive: true,
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        if (value > 0) {
+                            return value;
+                        } else {
+                            return '';
+                        }
+                    },
+                },
+                tooltip: {
+                    enabled: true,
+                    usePointStyle: true,
+                    callbacks: {
+                        label: (data) => {
+                            return data.parsed.y + ' tests'
+                        }
+                    },
+                },
+            },
+        }
+
+        const durationChart = new Chart(durationChartCtx, {
+            type: 'bar',
+            data: durationData,
+            options: durationOptions
+        });
+
+        function durationClickHandler(click) {
+            const points = durationChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(durationDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+
+        durationChartCtx.onclick = durationClickHandler;
+    </script>
+    <!-- END DURATION CHART -->
+
+
+
+    <!-- COVERAGE BAR CHART -->
+    <script>
+
+        // The coverage bar chart
+        const coverageChartCtx = document.getElementById('coverageChart');
+
+        // Options define for display value on top of bars
+
+        const coverageReports = [
+            {
+                title: 'Dropdown',
+                result: 'SUCCESS',
+                link: "9ce40a2d624b648140830704bf22f01fe99595d46804d8fd7afa9b67a3af9b88.html"
+            },
+        ]
+        const coverageData = {
+            labels: [
+                'Dropdown',
+            ],
+            datasets: [
+                {
+                    label: ['Passing Tests'],
+                    data: [18],
+                    backgroundColor: [ 'rgba(153,204,51,0.5)' ]
+                },
+                {
+                    label: ['Pending Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(165, 199, 238, 0.5)' ]
+                },
+                {
+                    label: ['Ignored Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(168, 168, 168, 0.5)' ]
+                },
+                {
+                    label: ['Skipped Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(238, 224, 152, 0.75)' ]
+                },
+                {
+                    label: ['Aborted Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(255, 153, 102, 0.5)' ]
+                },
+                {
+                    label: ['Failed Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(255, 22, 49, 0.5)' ]
+                },
+                {
+                    label: ['Errors'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(255, 97, 8, 0.5)' ]
+                },
+                {
+                    label: ['Compromised Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(255, 104, 255, 0.5)' ]
+                },
+            ]
+        }
+        const coverageOptions = {
+            responsive: true,
+            indexAxis: 'y',
+            // barPercentage: ,
+            barThickness: 'flex',
+            maxBarThickness: 30,
+            minBarLength: 2,
+            skipNull: true,
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true,
+                }
+            },
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold'
+                },
+                tooltip: {
+                    enabled: true,
+                    usePointStyle: true,
+                },
+            },
+        }
+
+        const coverageChart = new Chart(coverageChartCtx, {
+            type: 'bar',
+            data: coverageData,
+            options: coverageOptions
+        });
+
+        function coverageClickHandler(click) {
+            const points = coverageChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                if (coverageReports[firstPoint.index].link) {
+                    window.open(coverageReports[firstPoint.index].link, "_self")
+                }
+            }
+        }
+
+        coverageChartCtx.onclick = coverageClickHandler;
+    </script>
+    <!-- END COVERAGE CHART -->
+
+</body>
+</html>
