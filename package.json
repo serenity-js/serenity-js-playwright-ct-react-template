@@ -83,7 +83,7 @@
     "@typescript-eslint/parser": "^8.34.1",
     "cpy-cli": "^5.0.0",
     "eslint": "^9.29.0",
-    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-unicorn": "^59.0.1",
     "eslint-plugin-unused-imports": "^4.1.4",
