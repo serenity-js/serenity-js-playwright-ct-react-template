@@ -1,0 +1,1189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-3.7.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0.min.js"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+
+    <!-- Swiper.js local styles and script -->
+    <link rel="stylesheet" href="swiper/swiper-bundle.min.css" />
+    <script src="swiper/swiper-bundle.min.js"></script>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const startIndex = parseInt(urlParams.get("screenshot")) || 0;
+
+            new Swiper('.swiper', {
+                initialSlide: startIndex,
+                effect: 'fade',
+                speed: 200,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                    renderBullet: function (index, className) {
+                        return '<span class="' + className + '">' + (index + 1) + "</span>";
+                    },
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                },
+                keyboard: {
+                    enabled: true,
+                    onlyInViewport: true
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .swiper {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .swiper-pagination-bullet {
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            color: #000;
+            opacity: 1;
+            background: lightgrey;
+        }
+
+        .swiper-pagination-bullet-active {
+            color: #fff;
+            background: #007aff;
+        }
+    </style>
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Serenity/JS with Playwright Test</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="663f77c709b1684bcfed7ad2a559013d5a1660f7546f771cfad6580771b03a0f.html">Dropdown</a></span>
+                > <span class="truncate-60"><a
+                    href="7b01ef3bd959bf7c1b59e2cc8931b758c2f16f7449bc5cf80e5ae684962f815f.html">allows for selected options to be deselected - webkit </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="dafb266f68444cb7f2451c923d70c1428ac45470c361842b818e6daa9bcd4fa8.html"><i class="bi bi-chat-text"></i> Themes</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="bi bi-chat-text"></i> Capabilities</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 20-06-2025 16:53</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fs-2 bi bi-chat-left-quote large-icon"></i>
+                                    <span class="story-header-title">Dropdown </span>
+                                    <span class="badge tag-badge" style="">Capability</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="9ce40a2d624b648140830704bf22f01fe99595d46804d8fd7afa9b67a3af9b88.html">Dropdown/Dropdown
+                                        (feature)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="b58eaa86a08d7b6215f33be85119c2c380c63d2b486fe98f3f265ab0d6ee8a5a.html">Chromium
+                                        (project)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="9eefd038c3528e48967bf026e07859fb0a5e068ff0af1e8c4cb3e489cc233001.html">Chromium 138.0.7204.23
+                                        (browser)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="6aba34eb149fbb5cbd8434a9a803b3a1efc306007226cb78e98d31273ece9a36.html">Components/Dropdown/Dropdown
+                                        (feature)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="8afd86945a1a25b13fc1ac5043b29b159f5150952aa7fc6951378729e9e4cd4f.html">Retried
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="34658a1663fcf042bd7acb3325affbe4e647c8acd84d0228be2f52e1381e61b9.html">10 To 30 Seconds
+                                        (Duration)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="2a2f5b7ef12c67983270af5394eb30f30193948d8c510ed43d40f4bec8932995.html">Webkit 18.5
+                                        (browser)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="9476f52e3c6018514bc7c2b75ca62a04363ccdd590d69d78aa79374619baa9d9.html">Components
+                                        (theme)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="75368ba703b681a5620293aea7e491f0b599104dd7ac792744b27630653fa26f.html">Firefox 139.0
+                                        (browser)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="3350b2c5f63042dcf58707c713b4016d2e7d81a017ae47a26ec35d0ddcfa275f.html">Webkit
+                                        (project)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="6c5512236937b92cd7a296b24edb966c2bd94be46b8910f8b129a42d6150eb25.html">1 To 10 Seconds
+                                        (Duration)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="79eecfdc12fce88e0017d9237ffba3e9e69dd37c7839c4c496990a46a6e660e8.html">Components
+                                        (theme)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="835d080f60af4820c897072c63d6e6eea56d2200ebe09813a4f106025410eb5c.html">Linux 6.11.0-1015-Azure
+                                        (platform)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="55f65ba847c8e663dbab6b03e70e1206ff901fdfa2f80aec0fa3e24aed00af9b.html">Firefox
+                                        (project)
+                                </a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">allows for selected options to be deselected - webkit
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="story-title">
+        <h3>Scenario:</h3>
+        <div class="scenario"></div>
+    </div>
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+    <!-- Swiper Carousel -->
+    <div class="swiper">
+        <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-be7f80befe.png" title=" allows for selected options to be deselected #1 - Retries: Attempt #1" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-be7f80befe.png" title=" Tess selects [ &amp;apos;First&amp;apos;, &amp;apos;Third&amp;apos;, &amp;apos;Second&amp;apos; ] from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-be7f80befe.png" title=" Tess iterates over [ &amp;apos;First&amp;apos;, &amp;apos;Third&amp;apos;, &amp;apos;Second&amp;apos; ]" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-be7f80befe.png" title=" Tess selects &amp;apos;First&amp;apos; from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-be7f80befe.png" title=" Tess opens the dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-be7f80befe.png" title=" Tess checks whether CSS classes of dropdown does not contain &amp;quot;dropdown-expanded&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-be7f80befe.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-ba80ecf8dc.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-515a06be4c.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-9cc6b4ad5d.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-85e38ce25d.png" title=" Tess clicks on input field (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-waits-until-page-element-locat-269b029710.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-waits-until-page-element-locat-ca3b801b2a.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-waits-until-page-element-locat-ca3b801b2a.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-waits-until-page-element-locat-ca3b801b2a.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-waits-until-page-element-locat-ca3b801b2a.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-the-first-of-page-el-cd1ce3c11e.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-the-first-of-page-el-79d9a20e53.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-the-first-of-page-el-6026779ba7.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-the-first-of-page-el-31e8a5fb57.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-the-first-of-page-el-cc112e31f2.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;First&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-779bfe361b.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-ed6d89d8e8.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-ed6d89d8e8.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-ed6d89d8e8.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-ed6d89d8e8.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;First&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-2ae33e1be4.png" title=" Tess selects &amp;apos;Third&amp;apos; from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-2ae33e1be4.png" title=" Tess opens the dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-2ae33e1be4.png" title=" Tess checks whether CSS classes of dropdown does not contain &amp;quot;dropdown-expanded&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-2ae33e1be4.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-4219d7ff19.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-5fd57aac79.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-918575bed0.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-3154608dde.png" title=" Tess clicks on input field (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-waits-until-page-element-locat-7625b00e3e.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-waits-until-page-element-locat-f4ef7a7373.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-waits-until-page-element-locat-f4ef7a7373.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-waits-until-page-element-locat-f4ef7a7373.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-waits-until-page-element-locat-f4ef7a7373.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-the-first-of-page-el-60edc8ef67.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-the-first-of-page-el-43f97c4fd5.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-the-first-of-page-el-83d0c208d9.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-the-first-of-page-el-6c1663e8be.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-the-first-of-page-el-8ae1ee5508.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Third&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-08eb818818.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-a688ad70b7.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-a688ad70b7.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-a688ad70b7.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-a688ad70b7.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Third&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-3cdff12eb4.png" title=" Tess selects &amp;apos;Second&amp;apos; from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-3cdff12eb4.png" title=" Tess opens the dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-3cdff12eb4.png" title=" Tess checks whether CSS classes of dropdown does not contain &amp;quot;dropdown-expanded&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-3cdff12eb4.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-378f166608.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-40851bf81a.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-43ac3af50f.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-input-field-0aaa6db692.png" title=" Tess clicks on input field (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-waits-until-page-element-locat-9751973d72.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-waits-until-page-element-locat-e1bea08607.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-waits-until-page-element-locat-e1bea08607.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-waits-until-page-element-locat-e1bea08607.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-waits-until-page-element-locat-e1bea08607.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-the-first-of-page-el-edd03a4683.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-the-first-of-page-el-2e78599b04.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-the-first-of-page-el-9048ececa1.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-the-first-of-page-el-28f54c7f9c.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-the-first-of-page-el-23a4f6a79a.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Second&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-dfbb4c34d8.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-2dc6fb0653.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-2dc6fb0653.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-2dc6fb0653.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-2dc6fb0653.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Second&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-deselect-button-of-t-d3ed8a7f9a.png" title=" Tess deselects [ &amp;apos;First&amp;apos; ] from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-deselect-button-of-t-d3ed8a7f9a.png" title=" Tess iterates over [ &amp;apos;First&amp;apos; ]" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-deselect-button-of-t-d3ed8a7f9a.png" title=" Tess deselects &amp;apos;First&amp;apos; from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-deselect-button-of-t-d3ed8a7f9a.png" title=" Tess clicks on deselect button of the first of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-deselect-button-of-t-d3ed8a7f9a.png" title=" Tess clicks on deselect button of the first of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-deselect-button-of-t-d3ed8a7f9a.png" title=" Tess clicks on deselect button of the first of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-deselect-button-of-t-d3ed8a7f9a.png" title=" Tess clicks on deselect button of the first of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-clicks-on-deselect-button-of-t-d3ed8a7f9a.png" title=" Tess clicks on deselect button of the first of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field where Text does include &amp;quot;First&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-d3ed8a7f9a.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does not contain &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-d3ed8a7f9a.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does not contain &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-d3ed8a7f9a.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does not contain &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-d3ed8a7f9a.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does not contain &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-the-text-of-page-d3ed8a7f9a.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does not contain &amp;quot;First&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-selected-options-d3ed8a7f9a.png" title=" Tess ensures that selected options does equal [ &amp;quot;Third&amp;quot;, &amp;quot;Second&amp;quot; ]" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-selected-options-d3ed8a7f9a.png" title=" Tess ensures that selected options does equal [ &amp;quot;Third&amp;quot;, &amp;quot;Second&amp;quot; ]" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-selected-options-d3ed8a7f9a.png" title=" Tess ensures that selected options does equal [ &amp;quot;Third&amp;quot;, &amp;quot;Second&amp;quot; ]" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-selected-options-d3ed8a7f9a.png" title=" Tess ensures that selected options does equal [ &amp;quot;Third&amp;quot;, &amp;quot;Second&amp;quot; ]" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-chromium-138.0.7204.23-tess-ensures-that-selected-options-d3ed8a7f9a.png" title=" Tess ensures that selected options does equal [ &amp;quot;Third&amp;quot;, &amp;quot;Second&amp;quot; ] (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-64484cfb6a.png" title=" allows for selected options to be deselected #2 - Retries: Attempt #1" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-64484cfb6a.png" title=" Tess selects [ &amp;apos;First&amp;apos;, &amp;apos;Third&amp;apos;, &amp;apos;Second&amp;apos; ] from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-64484cfb6a.png" title=" Tess iterates over [ &amp;apos;First&amp;apos;, &amp;apos;Third&amp;apos;, &amp;apos;Second&amp;apos; ]" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-64484cfb6a.png" title=" Tess selects &amp;apos;First&amp;apos; from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-64484cfb6a.png" title=" Tess opens the dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-64484cfb6a.png" title=" Tess checks whether CSS classes of dropdown does not contain &amp;quot;dropdown-expanded&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-64484cfb6a.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-0105d52df6.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-c057b665e7.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-83a0ea505f.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-8783ffcf00.png" title=" Tess clicks on input field (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-waits-until-page-element-located-by-css-42c2bcc232.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-waits-until-page-element-located-by-css-ae621b3f8c.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-waits-until-page-element-located-by-css-6cba3dedc2.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-waits-until-page-element-located-by-css-7ba319cb5e.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-waits-until-page-element-located-by-css-34cac1406e.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-the-first-of-page-elements-lo-c7f57fb0ec.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-the-first-of-page-elements-lo-0dae4d588b.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-the-first-of-page-elements-lo-649cc322d2.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-the-first-of-page-elements-lo-770f2ec278.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-the-first-of-page-elements-lo-6808563f5a.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;First&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-f668e321db.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-2512cc98e8.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-d82cbd07db.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-6ec7b2e92e.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-e2d39ea78c.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;First&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-4b73cbf264.png" title=" Tess selects &amp;apos;Third&amp;apos; from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-4b73cbf264.png" title=" Tess opens the dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-4b73cbf264.png" title=" Tess checks whether CSS classes of dropdown does not contain &amp;quot;dropdown-expanded&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-4b73cbf264.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-5f5613ad65.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-9e35052d39.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-245cb1edf5.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-9c2a1aab9c.png" title=" Tess clicks on input field (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-waits-until-page-element-located-by-css-2f2f78aa34.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-waits-until-page-element-located-by-css-ed2b1a50d4.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-waits-until-page-element-located-by-css-4e02220c47.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-waits-until-page-element-located-by-css-b76aca0ad9.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-waits-until-page-element-located-by-css-0333a70bbf.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-the-first-of-page-elements-lo-cd4d525e14.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-the-first-of-page-elements-lo-1a948b0177.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-the-first-of-page-elements-lo-a082d66441.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-the-first-of-page-elements-lo-ec1dc84e76.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-the-first-of-page-elements-lo-e45b079e93.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Third&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-577409fec0.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-05dfa71569.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-50c8f03ede.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-275c6025f7.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-202e6bd56b.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Third&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-3356556d0f.png" title=" Tess selects &amp;apos;Second&amp;apos; from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-3356556d0f.png" title=" Tess opens the dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-3356556d0f.png" title=" Tess checks whether CSS classes of dropdown does not contain &amp;quot;dropdown-expanded&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-3356556d0f.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-9fac45e3f6.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-7847157c5e.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-d4f725aef5.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-input-field-77fb211ab4.png" title=" Tess clicks on input field (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-waits-until-page-element-located-by-css-4f31606a6a.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-waits-until-page-element-located-by-css-68cfb9ea0e.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-waits-until-page-element-located-by-css-7aad48ca1e.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-waits-until-page-element-located-by-css-024211ecb1.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-waits-until-page-element-located-by-css-44968b2881.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-the-first-of-page-elements-lo-f7865f86ca.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-the-first-of-page-elements-lo-4ed8ae81b3.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-the-first-of-page-elements-lo-15f2cd4ca3.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-the-first-of-page-elements-lo-582e6f2220.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-the-first-of-page-elements-lo-1e7621fcfe.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Second&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-bf10071df6.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-e196de7156.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-c794107ccc.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-523bbb7c9c.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-4f348df0b9.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Second&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-deselect-button-of-the-first-a5dae74af0.png" title=" Tess deselects [ &amp;apos;First&amp;apos; ] from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-deselect-button-of-the-first-a5dae74af0.png" title=" Tess iterates over [ &amp;apos;First&amp;apos; ]" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-deselect-button-of-the-first-a5dae74af0.png" title=" Tess deselects &amp;apos;First&amp;apos; from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-deselect-button-of-the-first-a5dae74af0.png" title=" Tess clicks on deselect button of the first of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-deselect-button-of-the-first-011c21a03c.png" title=" Tess clicks on deselect button of the first of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-deselect-button-of-the-first-132ec565f9.png" title=" Tess clicks on deselect button of the first of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-deselect-button-of-the-first-0b33e81408.png" title=" Tess clicks on deselect button of the first of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-clicks-on-deselect-button-of-the-first-7bc5c4b3ca.png" title=" Tess clicks on deselect button of the first of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field where Text does include &amp;quot;First&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-14661891fe.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does not contain &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-14661891fe.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does not contain &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-14661891fe.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does not contain &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-14661891fe.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does not contain &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-the-text-of-page-elements-14661891fe.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does not contain &amp;quot;First&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-selected-options-does-equa-14661891fe.png" title=" Tess ensures that selected options does equal [ &amp;quot;Third&amp;quot;, &amp;quot;Second&amp;quot; ]" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-selected-options-does-equa-14661891fe.png" title=" Tess ensures that selected options does equal [ &amp;quot;Third&amp;quot;, &amp;quot;Second&amp;quot; ]" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-selected-options-does-equa-14661891fe.png" title=" Tess ensures that selected options does equal [ &amp;quot;Third&amp;quot;, &amp;quot;Second&amp;quot; ]" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-selected-options-does-equa-14661891fe.png" title=" Tess ensures that selected options does equal [ &amp;quot;Third&amp;quot;, &amp;quot;Second&amp;quot; ]" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-firefox-139.0-tess-ensures-that-selected-options-does-equa-14661891fe.png" title=" Tess ensures that selected options does equal [ &amp;quot;Third&amp;quot;, &amp;quot;Second&amp;quot; ] (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-0cc5cbd933.png" title=" allows for selected options to be deselected #3 - Retries: Attempt #1" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-0cc5cbd933.png" title=" Tess selects [ &amp;apos;First&amp;apos;, &amp;apos;Third&amp;apos;, &amp;apos;Second&amp;apos; ] from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-0cc5cbd933.png" title=" Tess iterates over [ &amp;apos;First&amp;apos;, &amp;apos;Third&amp;apos;, &amp;apos;Second&amp;apos; ]" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-0cc5cbd933.png" title=" Tess selects &amp;apos;First&amp;apos; from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-0cc5cbd933.png" title=" Tess opens the dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-0cc5cbd933.png" title=" Tess checks whether CSS classes of dropdown does not contain &amp;quot;dropdown-expanded&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-0cc5cbd933.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-036f04d657.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-3bfed45669.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-85ef545815.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-85ef545815.png" title=" Tess clicks on input field (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-85ef545815.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-85ef545815.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-85ef545815.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-85ef545815.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-85ef545815.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-84d66ac93f.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-84d66ac93f.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-d638f4b336.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-d638f4b336.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-d638f4b336.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;First&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-ensures-that-the-text-of-page-elements-lo-0d5e9aaf98.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-ensures-that-the-text-of-page-elements-lo-0d5e9aaf98.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-ensures-that-the-text-of-page-elements-lo-0d5e9aaf98.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-ensures-that-the-text-of-page-elements-lo-0d5e9aaf98.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-ensures-that-the-text-of-page-elements-lo-0d5e9aaf98.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;First&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-92f87d22eb.png" title=" Tess selects &amp;apos;Third&amp;apos; from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-92f87d22eb.png" title=" Tess opens the dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-92f87d22eb.png" title=" Tess checks whether CSS classes of dropdown does not contain &amp;quot;dropdown-expanded&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-92f87d22eb.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-92f87d22eb.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-36a25a9b42.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-36a25a9b42.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-36a25a9b42.png" title=" Tess clicks on input field (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-6ad3c4d254.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-6ad3c4d254.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-6ad3c4d254.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-6ad3c4d254.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-6ad3c4d254.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-99ab849a53.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-99ab849a53.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-59c1b2f2bb.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-59c1b2f2bb.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-59c1b2f2bb.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Third&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-ensures-that-the-text-of-page-elements-lo-aa87d51a34.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-ensures-that-the-text-of-page-elements-lo-aa87d51a34.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-ensures-that-the-text-of-page-elements-lo-aa87d51a34.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-ensures-that-the-text-of-page-elements-lo-aa87d51a34.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-ensures-that-the-text-of-page-elements-lo-aa87d51a34.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Third&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-f880f57fa5.png" title=" Tess selects &amp;apos;Second&amp;apos; from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-f880f57fa5.png" title=" Tess opens the dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-f880f57fa5.png" title=" Tess checks whether CSS classes of dropdown does not contain &amp;quot;dropdown-expanded&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-f880f57fa5.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-f880f57fa5.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-c11fca35c2.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-c11fca35c2.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-c11fca35c2.png" title=" Tess clicks on input field (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-9c57477767.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-9c57477767.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-9c57477767.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-9c57477767.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-9c57477767.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-5529534788.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-5529534788.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-a3fc02e8f6.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-a3fc02e8f6.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-a3fc02e8f6.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Second&amp;quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-046fbeab56.png" title=" allows for selected options to be deselected #4 - Retries: Attempt #2" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-046fbeab56.png" title=" Tess selects [ &amp;apos;First&amp;apos;, &amp;apos;Third&amp;apos;, &amp;apos;Second&amp;apos; ] from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-046fbeab56.png" title=" Tess iterates over [ &amp;apos;First&amp;apos;, &amp;apos;Third&amp;apos;, &amp;apos;Second&amp;apos; ]" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-046fbeab56.png" title=" Tess selects &amp;apos;First&amp;apos; from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-046fbeab56.png" title=" Tess opens the dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-046fbeab56.png" title=" Tess checks whether CSS classes of dropdown does not contain &amp;quot;dropdown-expanded&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-046fbeab56.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-4eb871daa2.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-84d66ac93f.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-ensures-that-the-text-of-page-elements-lo-2053c50d5e.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-92f87d22eb.png" title=" Tess selects &amp;apos;Third&amp;apos; from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-92f87d22eb.png" title=" Tess opens the dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-92f87d22eb.png" title=" Tess checks whether CSS classes of dropdown does not contain &amp;quot;dropdown-expanded&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-92f87d22eb.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-a9147660ed.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-99ab849a53.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-ensures-that-the-text-of-page-elements-lo-4796f346e4.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Third&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-f880f57fa5.png" title=" Tess selects &amp;apos;Second&amp;apos; from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-f880f57fa5.png" title=" Tess opens the dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-f880f57fa5.png" title=" Tess checks whether CSS classes of dropdown does not contain &amp;quot;dropdown-expanded&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-input-field-f880f57fa5.png" title=" Tess clicks on input field" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-waits-until-page-element-located-by-css-df57d0611a.png" title=" Tess waits until page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) does become visible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-the-first-of-page-elements-loca-5529534788.png" title=" Tess clicks on the first of page elements located by css (&amp;apos;.dropdown-available-option&amp;apos;) of page element located by css (&amp;apos;.dropdown-available-options&amp;apos;) where Text does include &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-ensures-that-the-text-of-page-elements-lo-7be7d3965d.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does contain at least one item that does start with &amp;quot;Second&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-deselect-button-of-the-first-of-9903111032.png" title=" Tess deselects [ &amp;apos;First&amp;apos; ] from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-deselect-button-of-the-first-of-9903111032.png" title=" Tess iterates over [ &amp;apos;First&amp;apos; ]" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-deselect-button-of-the-first-of-9903111032.png" title=" Tess deselects &amp;apos;First&amp;apos; from dropdown" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-clicks-on-deselect-button-of-the-first-of-9903111032.png" title=" Tess clicks on deselect button of the first of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field where Text does include &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-ensures-that-the-text-of-page-elements-lo-9903111032.png" title=" Tess ensures that the text of page elements located by css (&amp;apos;.dropdown-selected-option&amp;apos;) of input field does not contain &amp;quot;First&amp;quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo-linux-webkit-18.5-tess-ensures-that-selected-options-does-equal-9903111032.png" title=" Tess ensures that selected options does equal [ &quot;Third&quot;, &quot;Second&quot; ]: <span class='success-color'>SUCCESS</span>" width="0" />
+                </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 4.2.30</span>
+</div>
+</body>
+</html>
