@@ -1,10 +1,10 @@
 import { defineConfig, devices } from '@playwright/experimental-ct-react';
-import { SerenityOptions } from '@serenity-js/playwright-test';
+import { SerenityFixtures, SerenityWorkerFixtures } from '@serenity-js/playwright-test';
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig<SerenityOptions>({
+export default defineConfig<SerenityFixtures, SerenityWorkerFixtures>({
     testDir: './src',
     /* The base directory, relative to the config file, for snapshot files created with toMatchSnapshot and toHaveScreenshot. */
     snapshotDir: './__snapshots__',
