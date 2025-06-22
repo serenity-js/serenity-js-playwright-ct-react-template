@@ -32,9 +32,9 @@
 
 <!-- Required Javascript -->
 <script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
-<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
-<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
-<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+<link type="text/css" href="datatables/2.3.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/2.3.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/2.3.1/time-elapsed-dhms.js"></script>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -72,11 +72,11 @@
     Chart.register(ChartDataLabels);
 </script>
 <!-- JQuery-UI -->
-<link type="text/css" href="jqueryui/1.13.2/jquery-ui.css" rel="Stylesheet" />
-<script type="text/javascript" src="jqueryui/1.13.2/jquery-ui.js"></script><!-- DataTables -->
-<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
-<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
-<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+<link type="text/css" href="jquery-ui/1.14.1/jquery-ui.css" rel="Stylesheet" />
+<script type="text/javascript" src="jquery-ui/1.14.1/jquery-ui.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/2.3.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/2.3.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/2.3.1/time-elapsed-dhms.js"></script>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -157,12 +157,6 @@
                     searchPlaceholder: "Filter",
                     search: ""
                 },
-                columnDefs: [
-                    {
-                        targets: 2,
-                        visible: false
-                    },
-                ]
             });
 
             $(".feature-coverage-table-with-pagination").DataTable({
@@ -173,12 +167,6 @@
                     searchPlaceholder: "Filter",
                     search: ""
                 },
-                columnDefs: [
-                    {
-                        targets: 2,
-                        visible: false
-                    },
-                ]
             });
         });
     </script>
@@ -232,7 +220,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 21-06-2025 02:12:01</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 22-06-2025 04:37:57</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -332,27 +320,27 @@
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>Jun 21, 2025 02:10:37</td>
+                    <td>Jun 22, 2025 04:36:34</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td>Jun 21, 2025 02:11:55</td>
+                    <td>Jun 22, 2025 04:37:52</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td> 1m 18s</td>
+                    <td> 1m 17s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>425ms</td>
+                    <td>311ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -373,7 +361,7 @@
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td> 4m 57s</td>
+                    <td> 4m 53s</td>
                 </tr>
                 </tbody>
             </table>
@@ -395,7 +383,6 @@
                                                                         <tr>
                                                                             <th>Feature</th>
                                                                             <th style="width:1em;">Scenarios</th>
-                                                                            <th style="width:1em;">StepsText</th>
                                                                             <th style="width:1em;">Test&nbsp;Cases</th>
                                                                             <th style="width:1em;">%&nbsp;Pass</th>
                                                                             <th style="width:1em;">Result</th>
@@ -408,351 +395,6 @@
                                                                                             <a href="#"> Components >  components >  dropdown > Dropdown</a>
                                                                                     </td>
                                                                                     <td>6</td>
-                                                                                    <td>shows the placeholder when no option is selected yet #1 - Retries: Attempt #1
-Tess ensures that placeholder of dropdown does eventually equal &quot;Select option&quot;
-shows the placeholder when no option is selected yet #2 - Retries: Attempt #1
-Tess ensures that placeholder of dropdown does eventually equal &quot;Select option&quot;
-shows the placeholder when no option is selected yet #3 - Retries: Attempt #1
-Tess ensures that placeholder of dropdown does eventually equal &quot;Select option&quot;
-shows the available options when the menu is expanded #1 - Retries: Attempt #1
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess ensures that available options of dropdown does eventually equal [ &quot;First&quot;, &quot;Second&quot;, &quot;Third&quot; ]
-shows the available options when the menu is expanded #2 - Retries: Attempt #1
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess ensures that available options of dropdown does eventually equal [ &quot;First&quot;, &quot;Second&quot;, &quot;Third&quot; ]
-shows the available options when the menu is expanded #3 - Retries: Attempt #1
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess ensures that available options of dropdown does eventually equal [ &quot;First&quot;, &quot;Second&quot;, &quot;Third&quot; ]
-selects the desired options #1 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess ensures that selected options does equal [ &quot;First&quot;, &quot;Third&quot; ]
-selects the desired options #2 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess ensures that selected options does equal [ &quot;First&quot;, &quot;Third&quot; ]
-selects the desired options #3 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess ensures that selected options does equal [ &quot;First&quot;, &quot;Third&quot; ]
-triggers onChange with selected options #1 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess takes notes:
-- selectedOptions: [ &quot;First&quot; ]
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess takes notes:
-- selectedOptions: [ &quot;First&quot;, &quot;Third&quot; ]
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess ensures that [ &quot;First&quot;, &quot;Third&quot; ] does eventually equal [ &quot;First&quot;, &quot;Third&quot; ]
-triggers onChange with selected options #2 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess takes notes:
-- selectedOptions: [ &quot;First&quot; ]
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess takes notes:
-- selectedOptions: [ &quot;First&quot;, &quot;Third&quot; ]
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess ensures that [ &quot;First&quot;, &quot;Third&quot; ] does eventually equal [ &quot;First&quot;, &quot;Third&quot; ]
-triggers onChange with selected options #3 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess takes notes:
-- selectedOptions: [ &quot;First&quot; ]
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess takes notes:
-- selectedOptions: [ &quot;First&quot;, &quot;Third&quot; ]
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess ensures that [ &quot;First&quot;, &quot;Third&quot; ] does eventually equal [ &quot;First&quot;, &quot;Third&quot; ]
-allows for selected options to be deselected #1 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos;, &apos;Second&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess selects &apos;Second&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Second&quot;
-Tess deselects [ &apos;First&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos; ]
-Tess deselects &apos;First&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;First&quot;
-Tess ensures that selected options does equal [ &quot;Third&quot;, &quot;Second&quot; ]
-allows for selected options to be deselected #2 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos;, &apos;Second&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess selects &apos;Second&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Second&quot;
-Tess deselects [ &apos;First&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos; ]
-Tess deselects &apos;First&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;First&quot;
-Tess ensures that selected options does equal [ &quot;Third&quot;, &quot;Second&quot; ]
-allows for selected options to be deselected #3 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos;, &apos;Second&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess selects &apos;Second&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Second&quot;
-Tess deselects [ &apos;First&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos; ]
-Tess deselects &apos;First&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;First&quot;
-allows for selected options to be deselected #4 - Retries: Attempt #2
-Tess selects [ &apos;First&apos;, &apos;Third&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos;, &apos;Second&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess selects &apos;Second&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Second&quot;
-Tess deselects [ &apos;First&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos; ]
-Tess deselects &apos;First&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;First&quot;
-Tess ensures that selected options does equal [ &quot;Third&quot;, &quot;Second&quot; ]
-goes back to showing the placeholder when all the selected options get deselected #1 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Second&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Second&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Second&quot;
-Tess deselects [ &apos;First&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Second&apos; ]
-Tess deselects &apos;First&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;First&quot;
-Tess deselects &apos;Second&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;Second&quot;
-Tess ensures that 0 does equal 0
-Tess ensures that placeholder of dropdown does equal &quot;Select option&quot;
-goes back to showing the placeholder when all the selected options get deselected #2 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Second&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Second&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Second&quot;
-Tess deselects [ &apos;First&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Second&apos; ]
-Tess deselects &apos;First&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;First&quot;
-Tess deselects &apos;Second&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;Second&quot;
-Tess ensures that 0 does equal 0
-Tess ensures that placeholder of dropdown does equal &quot;Select option&quot;
-goes back to showing the placeholder when all the selected options get deselected #3 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Second&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Second&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Second&quot;
-Tess deselects [ &apos;First&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Second&apos; ]
-Tess deselects &apos;First&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;First&quot;
-Tess deselects &apos;Second&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;Second&quot;
-Tess ensures that 0 does equal 0
-Tess ensures that placeholder of dropdown does equal &quot;Select option&quot;
-</td>
                                                                                     <td>19</td>
                                                                                     <td>95%</td>
                                                                                     <td>
@@ -784,351 +426,6 @@ Tess ensures that placeholder of dropdown does equal &quot;Select option&quot;
                                                                                             <a href="9ce40a2d624b648140830704bf22f01fe99595d46804d8fd7afa9b67a3af9b88.html"> Components >  dropdown > Dropdown</a>
                                                                                     </td>
                                                                                     <td>6</td>
-                                                                                    <td>shows the placeholder when no option is selected yet #1 - Retries: Attempt #1
-Tess ensures that placeholder of dropdown does eventually equal &quot;Select option&quot;
-shows the placeholder when no option is selected yet #2 - Retries: Attempt #1
-Tess ensures that placeholder of dropdown does eventually equal &quot;Select option&quot;
-shows the placeholder when no option is selected yet #3 - Retries: Attempt #1
-Tess ensures that placeholder of dropdown does eventually equal &quot;Select option&quot;
-shows the available options when the menu is expanded #1 - Retries: Attempt #1
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess ensures that available options of dropdown does eventually equal [ &quot;First&quot;, &quot;Second&quot;, &quot;Third&quot; ]
-shows the available options when the menu is expanded #2 - Retries: Attempt #1
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess ensures that available options of dropdown does eventually equal [ &quot;First&quot;, &quot;Second&quot;, &quot;Third&quot; ]
-shows the available options when the menu is expanded #3 - Retries: Attempt #1
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess ensures that available options of dropdown does eventually equal [ &quot;First&quot;, &quot;Second&quot;, &quot;Third&quot; ]
-selects the desired options #1 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess ensures that selected options does equal [ &quot;First&quot;, &quot;Third&quot; ]
-selects the desired options #2 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess ensures that selected options does equal [ &quot;First&quot;, &quot;Third&quot; ]
-selects the desired options #3 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess ensures that selected options does equal [ &quot;First&quot;, &quot;Third&quot; ]
-triggers onChange with selected options #1 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess takes notes:
-- selectedOptions: [ &quot;First&quot; ]
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess takes notes:
-- selectedOptions: [ &quot;First&quot;, &quot;Third&quot; ]
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess ensures that [ &quot;First&quot;, &quot;Third&quot; ] does eventually equal [ &quot;First&quot;, &quot;Third&quot; ]
-triggers onChange with selected options #2 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess takes notes:
-- selectedOptions: [ &quot;First&quot; ]
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess takes notes:
-- selectedOptions: [ &quot;First&quot;, &quot;Third&quot; ]
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess ensures that [ &quot;First&quot;, &quot;Third&quot; ] does eventually equal [ &quot;First&quot;, &quot;Third&quot; ]
-triggers onChange with selected options #3 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess takes notes:
-- selectedOptions: [ &quot;First&quot; ]
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess takes notes:
-- selectedOptions: [ &quot;First&quot;, &quot;Third&quot; ]
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess ensures that [ &quot;First&quot;, &quot;Third&quot; ] does eventually equal [ &quot;First&quot;, &quot;Third&quot; ]
-allows for selected options to be deselected #1 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos;, &apos;Second&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess selects &apos;Second&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Second&quot;
-Tess deselects [ &apos;First&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos; ]
-Tess deselects &apos;First&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;First&quot;
-Tess ensures that selected options does equal [ &quot;Third&quot;, &quot;Second&quot; ]
-allows for selected options to be deselected #2 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos;, &apos;Second&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess selects &apos;Second&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Second&quot;
-Tess deselects [ &apos;First&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos; ]
-Tess deselects &apos;First&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;First&quot;
-Tess ensures that selected options does equal [ &quot;Third&quot;, &quot;Second&quot; ]
-allows for selected options to be deselected #3 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Third&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos;, &apos;Second&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess selects &apos;Second&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Second&quot;
-Tess deselects [ &apos;First&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos; ]
-Tess deselects &apos;First&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;First&quot;
-allows for selected options to be deselected #4 - Retries: Attempt #2
-Tess selects [ &apos;First&apos;, &apos;Third&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Third&apos;, &apos;Second&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Third&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Third&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Third&quot;
-Tess selects &apos;Second&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Second&quot;
-Tess deselects [ &apos;First&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos; ]
-Tess deselects &apos;First&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;First&quot;
-Tess ensures that selected options does equal [ &quot;Third&quot;, &quot;Second&quot; ]
-goes back to showing the placeholder when all the selected options get deselected #1 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Second&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Second&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Second&quot;
-Tess deselects [ &apos;First&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Second&apos; ]
-Tess deselects &apos;First&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;First&quot;
-Tess deselects &apos;Second&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;Second&quot;
-Tess ensures that 0 does equal 0
-Tess ensures that placeholder of dropdown does equal &quot;Select option&quot;
-goes back to showing the placeholder when all the selected options get deselected #2 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Second&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Second&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Second&quot;
-Tess deselects [ &apos;First&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Second&apos; ]
-Tess deselects &apos;First&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;First&quot;
-Tess deselects &apos;Second&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;Second&quot;
-Tess ensures that 0 does equal 0
-Tess ensures that placeholder of dropdown does equal &quot;Select option&quot;
-goes back to showing the placeholder when all the selected options get deselected #3 - Retries: Attempt #1
-Tess selects [ &apos;First&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Second&apos; ]
-Tess selects &apos;First&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;First&quot;
-Tess selects &apos;Second&apos; from dropdown
-Tess opens the dropdown
-Tess checks whether CSS classes of dropdown does not contain &quot;dropdown-expanded&quot;
-Tess clicks on input field
-Tess waits until page element located by css (&apos;.dropdown-available-options&apos;) does become visible
-Tess clicks on the first of page elements located by css (&apos;.dropdown-available-option&apos;) of page element located by css (&apos;.dropdown-available-options&apos;) where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does contain at least one item that does start with &quot;Second&quot;
-Tess deselects [ &apos;First&apos;, &apos;Second&apos; ] from dropdown
-Tess iterates over [ &apos;First&apos;, &apos;Second&apos; ]
-Tess deselects &apos;First&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;First&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;First&quot;
-Tess deselects &apos;Second&apos; from dropdown
-Tess clicks on deselect button of the first of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field where Text does include &quot;Second&quot;
-Tess ensures that the text of page elements located by css (&apos;.dropdown-selected-option&apos;) of input field does not contain &quot;Second&quot;
-Tess ensures that 0 does equal 0
-Tess ensures that placeholder of dropdown does equal &quot;Select option&quot;
-</td>
                                                                                     <td>19</td>
                                                                                     <td>95%</td>
                                                                                     <td>
@@ -1300,7 +597,7 @@ Tess ensures that placeholder of dropdown does equal &quot;Select option&quot;
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td> 1m 18s</td>
+                    <td> 1m 17s</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -1310,7 +607,7 @@ Tess ensures that placeholder of dropdown does equal &quot;Select option&quot;
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>425ms</td>
+                    <td>311ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -1327,7 +624,7 @@ Tess ensures that placeholder of dropdown does equal &quot;Select option&quot;
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>Jun 21, 2025 02:10:37</td>
+                    <td>Jun 22, 2025 04:36:34</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
@@ -1339,12 +636,12 @@ Tess ensures that placeholder of dropdown does equal &quot;Select option&quot;
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td>Jun 21, 2025 02:11:55</td>
+                    <td>Jun 22, 2025 04:37:52</td>
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td> 4m 57s</td>
+                    <td> 4m 53s</td>
                 </tr>
                 </tbody>
             </table>
@@ -1360,7 +657,6 @@ Tess ensures that placeholder of dropdown does equal &quot;Select option&quot;
                                                                     <th class="test-name-column">Scenario</th>
                                                                     <th>Context</th>
                                                                     <th>Steps</th>
-                                                                    <th>StepsText</th>
                                                                     <th>Started</th>
                                                                     <th>Total Duration</th>
                                                                     <th>Result</th>
@@ -1382,12 +678,8 @@ Tess ensures that placeholder of dropdown does equal &quot;Select option&quot;
                                                                         <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-browser-firefox' title='Firefox'></i> <i class='bi bi-browser-safari' title='Safari or WebKit'></i></span><span style="display:none">linux,Chrome,Firefox,Safari or WebKit</span>
                                                                         </td>
                                                                         <td>3</td>
-                                                                        <td>shows the placeholder when no option is selected yet #1 - Retries: Attempt #1
-shows the placeholder when no option is selected yet #2 - Retries: Attempt #1
-shows the placeholder when no option is selected yet #3 - Retries: Attempt #1
-</td>
-                                                                        <td data-order="1750471837">02:10:37</td>
-                                                                        <td>37s 343ms</td>
+                                                                        <td data-order="1750566994">04:36:34</td>
+                                                                        <td>36s 580ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -1407,12 +699,8 @@ shows the placeholder when no option is selected yet #3 - Retries: Attempt #1
                                                                         <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-browser-firefox' title='Firefox'></i> <i class='bi bi-browser-safari' title='Safari or WebKit'></i></span><span style="display:none">linux,Chrome,Firefox,Safari or WebKit</span>
                                                                         </td>
                                                                         <td>3</td>
-                                                                        <td>shows the available options when the menu is expanded #1 - Retries: Attempt #1
-shows the available options when the menu is expanded #2 - Retries: Attempt #1
-shows the available options when the menu is expanded #3 - Retries: Attempt #1
-</td>
-                                                                        <td data-order="1750471837">02:10:37</td>
-                                                                        <td>39s 099ms</td>
+                                                                        <td data-order="1750566995">04:36:35</td>
+                                                                        <td>38s 468ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -1432,12 +720,8 @@ shows the available options when the menu is expanded #3 - Retries: Attempt #1
                                                                         <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-browser-firefox' title='Firefox'></i> <i class='bi bi-browser-safari' title='Safari or WebKit'></i></span><span style="display:none">linux,Chrome,Firefox,Safari or WebKit</span>
                                                                         </td>
                                                                         <td>3</td>
-                                                                        <td>selects the desired options #1 - Retries: Attempt #1
-selects the desired options #2 - Retries: Attempt #1
-selects the desired options #3 - Retries: Attempt #1
-</td>
-                                                                        <td data-order="1750471838">02:10:38</td>
-                                                                        <td>43s 984ms</td>
+                                                                        <td data-order="1750566996">04:36:36</td>
+                                                                        <td>43s 435ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -1457,12 +741,8 @@ selects the desired options #3 - Retries: Attempt #1
                                                                         <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-browser-firefox' title='Firefox'></i> <i class='bi bi-browser-safari' title='Safari or WebKit'></i></span><span style="display:none">linux,Chrome,Firefox,Safari or WebKit</span>
                                                                         </td>
                                                                         <td>3</td>
-                                                                        <td>triggers onChange with selected options #1 - Retries: Attempt #1
-triggers onChange with selected options #2 - Retries: Attempt #1
-triggers onChange with selected options #3 - Retries: Attempt #1
-</td>
-                                                                        <td data-order="1750471841">02:10:41</td>
-                                                                        <td>49s 745ms</td>
+                                                                        <td data-order="1750566998">04:36:38</td>
+                                                                        <td>49s 198ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -1484,13 +764,8 @@ triggers onChange with selected options #3 - Retries: Attempt #1
                                                                         <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-browser-firefox' title='Firefox'></i> <i class='bi bi-browser-safari' title='Safari or WebKit'></i></span><span style="display:none">linux,Chrome,Firefox,Safari or WebKit</span>
                                                                         </td>
                                                                         <td>4</td>
-                                                                        <td>allows for selected options to be deselected #1 - Retries: Attempt #1
-allows for selected options to be deselected #2 - Retries: Attempt #1
-allows for selected options to be deselected #3 - Retries: Attempt #1
-allows for selected options to be deselected #4 - Retries: Attempt #2
-</td>
-                                                                        <td data-order="1750471845">02:10:45</td>
-                                                                        <td>1m 4s</td>
+                                                                        <td data-order="1750567002">04:36:42</td>
+                                                                        <td>1m 3s</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-slash-circle ignored-icon ' title='IGNORED'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -1510,12 +785,8 @@ allows for selected options to be deselected #4 - Retries: Attempt #2
                                                                         <td><span class='context-icon'><i class='bi bi-ubuntu' title='Linux'></i> <i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-browser-firefox' title='Firefox'></i> <i class='bi bi-browser-safari' title='Safari or WebKit'></i></span><span style="display:none">linux,Chrome,Firefox,Safari or WebKit</span>
                                                                         </td>
                                                                         <td>3</td>
-                                                                        <td>goes back to showing the placeholder when all the selected options get deselected #1 - Retries: Attempt #1
-goes back to showing the placeholder when all the selected options get deselected #2 - Retries: Attempt #1
-goes back to showing the placeholder when all the selected options get deselected #3 - Retries: Attempt #1
-</td>
-                                                                        <td data-order="1750471851">02:10:51</td>
-                                                                        <td>1m 4s</td>
+                                                                        <td data-order="1750567009">04:36:49</td>
+                                                                        <td>1m 3s</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -1672,7 +943,7 @@ goes back to showing the placeholder when all the selected options get deselecte
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
-            <span class="version">Serenity BDD version 4.2.30</span>
+            <span class="version">Serenity BDD version 4.2.34</span>
         </div>
     </div>
 </div>
