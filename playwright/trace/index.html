@@ -7,8 +7,8 @@
     <link rel="icon" href="./playwright-logo.svg" type="image/svg+xml">
     <link rel="manifest" href="./manifest.webmanifest">
     <title>Playwright Trace Viewer</title>
-    <script type="module" crossorigin src="./index.BjQ9je-p.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/defaultSettingsView-Cjl_e5YM.js">
+    <script type="module" crossorigin src="./index.CG3BNeDq.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/defaultSettingsView-Ds-bson8.js">
     <link rel="stylesheet" crossorigin href="./defaultSettingsView.NYBT19Ch.css">
     <link rel="stylesheet" crossorigin href="./index.CFOW-Ezb.css">
   </head>
@@ -21,7 +21,7 @@
     <script>
       if (!/^https?:/.test(window.location.protocol)) {
         const fallbackErrorDialog = document.getElementById('fallback-error');
-        const isTraceViewerInsidePlaywrightReport = window.location.protocol === 'file:' && window.location.pathname.endsWith('/playwright-report/trace/index.html');
+        const isTraceViewerInsidePlaywrightReport = window.location.protocol === 'file:' && window.location.pathname.endsWith('/trace/index.html');
         // Best-effort to show the report path in the dialog.
         if (isTraceViewerInsidePlaywrightReport) {
           const reportPath = (() => {
