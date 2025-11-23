@@ -11,19 +11,15 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/serenity-js/playwright:v1.56.1-noble
     steps:
       - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
       - uses: actions/setup-node@v6
         with:
           node-version: '24.11.1'
-      - uses: actions/setup-java@v5
-        with:
-          distribution: 'temurin'
-          java-version: '17'
       - name: Setup Node Modules
         uses: bahmutov/npm-install@v1
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npm test
       - uses: actions/upload-artifact@v5
