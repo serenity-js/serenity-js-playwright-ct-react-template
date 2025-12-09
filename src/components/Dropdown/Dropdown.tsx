@@ -46,10 +46,10 @@ export function Dropdown({ placeholder, options, allowMultiple, onChange }: Drop
             }
         }
 
-        window.addEventListener('click', handler);
+        globalThis.addEventListener('click', handler);
 
         return () => {
-            window.removeEventListener('click', handler);
+            globalThis.removeEventListener('click', handler);
         };
     });
 
