@@ -38,7 +38,7 @@ npm test
 ```
 - View the generated reports:
   - **Serenity BDD**: `./target/site/serenity/index.html`
-  - **Playwright Test**; `./playwright-report/index.html`
+  - **Playwright Test**: `./playwright-report/index.html`
 - Serve the Serenity BDD report locally:
 ```
 npm run start
