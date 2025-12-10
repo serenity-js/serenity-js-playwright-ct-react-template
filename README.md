@@ -93,17 +93,18 @@ Contributions of all kinds are welcome! Get started with the [Contributing Guide
 
 ## Community
 
-Connect with other developers using Serenity/JS:
-
-- [Community Chat](https://matrix.to/#/#serenity-js:gitter.im)
-- [Discussions Forum](https://github.com/orgs/serenity-js/discussions)
-    - Explore the [💡How to... ?](https://github.com/orgs/serenity-js/discussions/categories/how-to) answers to common questions
-
-Follow Serenity/JS to learn about new features, tutorials, and releases!
-
 [![Follow Serenity/JS on LinkedIn](https://img.shields.io/badge/LinkedIn-Serenity%2FJS%20-0077B5?logo=linkedin)](https://www.linkedin.com/company/serenity-js)
 [![Watch Serenity/JS on YouTube](https://img.shields.io/badge/Watch-@serenity--js-E62117?logo=youtube)](https://www.youtube.com/@serenity-js)
 [![Join Serenity/JS Community Chat](https://img.shields.io/badge/Chat-Serenity%2FJS%20Community-FBD30B?logo=matrix)](https://matrix.to/#/#serenity-js:gitter.im)
+
+Connect with other developers using Serenity/JS:
+
+- [Updates on LinkedIn](https://www.linkedin.com/company/serenity-js)
+- [Community Chat](https://matrix.to/#/#serenity-js:gitter.im)
+- [Discussions Forum](https://github.com/orgs/serenity-js/discussions)
+  - Explore the [💡How to... ?](https://github.com/orgs/serenity-js/discussions/categories/how-to) answers to common questions
+
+Follow Serenity/JS to learn about new features, tutorials, and releases!
 
 ⭐ Star the main [Serenity/JS repository](https://github.com/serenity-js/serenity-js) to help others discover the framework!
 
