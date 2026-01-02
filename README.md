@@ -225,18 +225,28 @@ Contributions of all kinds are welcome! Get started with the [Contributing Guide
 [![Watch Serenity/JS on YouTube](https://img.shields.io/badge/Watch-@serenity--js-E62117?logo=youtube)](https://www.youtube.com/@serenity-js)
 [![Join Serenity/JS Community Chat](https://img.shields.io/badge/Chat-Serenity%2FJS%20Community-FBD30B?logo=matrix)](https://matrix.to/#/#serenity-js:gitter.im)
 
-Connect with other developers using Serenity/JS:
+Join a thriving community of developers using Serenity/JS to deliver high-quality software!
 
-- [Updates on LinkedIn](https://www.linkedin.com/company/serenity-js)
-- [Community Chat](https://matrix.to/#/#serenity-js:gitter.im)
-- [Discussions Forum](https://github.com/orgs/serenity-js/discussions)
-  - Explore the [💡How to... ?](https://github.com/orgs/serenity-js/discussions/categories/how-to) answers to common questions
+### Stay informed
 
-Follow Serenity/JS to learn about new features, tutorials, and releases!
+- 📰 [Get the latest updates on LinkedIn](https://www.linkedin.com/company/serenity-js) - Product announcements, tutorials, and best practices
+- 📺 [Watch tutorials on YouTube](https://www.youtube.com/@serenity-js) - Video guides and conference talks
 
-⭐ Star the main [Serenity/JS repository](https://github.com/serenity-js/serenity-js) to help others discover the framework!
+### Get help and share knowledge
+
+- 💬 [Join the Community Chat](https://matrix.to/#/#serenity-js:gitter.im) - Real-time help and discussions
+- 💡 [Browse the Discussions Forum](https://github.com/orgs/serenity-js/discussions) - Q&A and feature discussions
+  - Check out [How to...?](https://github.com/orgs/serenity-js/discussions/categories/how-to) for answers to common questions
+
+### Share the love!
+
+Love Serenity/JS? Help others discover the framework:
+
+⭐ **Star the [Serenity/JS repository](https://github.com/serenity-js/serenity-js)** on GitHub
 
 [![GitHub stars](https://img.shields.io/github/stars/serenity-js/serenity-js?label=Serenity%2FJS&logo=github&style=badge)](https://github.com/serenity-js/serenity-js)
+
+Starring the repository helps increase visibility and shows your support for the project!
 
 ## License
 
@@ -247,10 +257,24 @@ See the [Serenity/JS License](https://serenity-js.org/legal/license/).
 
 ## Support
 
-Support ongoing development through [GitHub Sponsors](https://github.com/sponsors/serenity-js). Sponsors gain access to [Serenity/JS Playbooks](https://github.com/serenity-js/playbooks)
-and priority help in the [Discussions Forum](https://github.com/orgs/serenity-js/discussions).
+### 💝 Sponsor Serenity/JS
 
-For commercial support or corporate sponsorship, please contact [Jan Molak](https://www.linkedin.com/in/janmolak/).
+Support the ongoing development of Serenity/JS and the open-source community:
 
 [![GitHub Sponsors](https://img.shields.io/badge/Support%20@serenity%2FJS-703EC8?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sponsors/serenity-js)
+
+**Sponsor benefits:**
+- 🎓 Access to [Serenity/JS Playbooks](https://github.com/serenity-js/playbooks) - Advanced patterns and best practices
+- 🏆 Priority support in the [Community Discussions Forum](https://github.com/orgs/serenity-js/discussions)
+- 💚 Support open-source development and help keep Serenity/JS free for everyone
+
+### 🏢 Professional Services
+
+Need dedicated support, training, or consulting for your team?
+
+**[Contact Jan Molak](https://www.linkedin.com/in/janmolak/)** for:
+- 🎯 **Consulting & Training** - Custom workshops and team training sessions
+- 🤝 **Corporate Support** - Dedicated technical support and SLA-backed assistance  
+- 🏗️ **Architecture Reviews** - Expert guidance on test automation strategy and implementation
+- 📊 **Corporate Sponsorship** - Tailored partnership opportunities for organizations
 
