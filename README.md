@@ -143,7 +143,7 @@ src/
 │   ├── Dropdown/        # Example: Dropdown component
 │   │   ├── Dropdown.tsx           # React component implementation
 │   │   ├── Dropdown.spec.tsx      # Component test scenarios
-│   │   ├── Dropdown.serenity.ts   # Serenity/JS page elements (Screenplay Pattern)
+│   │   ├── Dropdown.serenity.ts   # Serenity/JS page objects (Screenplay Pattern)
 │   │   └── index.tsx              # Component exports
 │   ├── index.ts         # Components barrel export
 │   └── serenity.ts      # Serenity/JS barrel export
@@ -163,12 +163,12 @@ playwright-report/       # Generated Playwright Test reports
 **Key files:**
 - `*.tsx` - React component implementations
 - `*.spec.tsx` - Test scenarios using Serenity/JS and Playwright CT
-- `*.serenity.ts` - Reusable page elements following the [Screenplay Pattern](https://serenity-js.org/handbook/design/screenplay-pattern/)
+- `*.serenity.ts` - Reusable page objects following the [Screenplay Pattern](https://serenity-js.org/handbook/design/screenplay-pattern/)
 
 ## Next steps
 
 - **Replace sample components**: Remove the `Dropdown` example and add your own React components in `src/components/`
-- **Create Serenity/JS page elements**: Define reusable interactions using the Screenplay Pattern (see `Dropdown.serenity.ts` for examples)
+- **Create Serenity/JS page objects**: Define reusable test code following the Screenplay Pattern (see `Dropdown.serenity.ts` for examples)
 - **Write test scenarios**: Add `*.spec.tsx` files alongside your components to test them in isolation
 - **Customize reporting**: Configure test metadata and tags in your test scenarios for better living documentation
 - **Integrate into CI/CD**: Use the provided npm scripts in your continuous integration pipeline
