@@ -83,7 +83,7 @@
     "@stylistic/eslint-plugin": "^5.7.1",
     "@types/node": "^24.10.11",
     "@types/react": "^19.2.13",
-    "cpy-cli": "^6.0.0",
+    "cpy-cli": "^7.0.0",
     "eslint": "^9.39.2",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
