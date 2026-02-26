@@ -81,7 +81,7 @@
     "@serenity-js/serenity-bdd": "^3.41.0",
     "@serenity-js/web": "^3.41.0",
     "@stylistic/eslint-plugin": "^5.9.0",
-    "@types/node": "^24.10.14",
+    "@types/node": "^24.10.15",
     "@types/react": "^19.2.14",
     "cpy-cli": "^6.0.0",
     "eslint": "^9.39.3",
