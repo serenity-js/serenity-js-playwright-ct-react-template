@@ -70,7 +70,7 @@
     }
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.4",
+    "@eslint/js": "^9.39.5",
     "@playwright/experimental-ct-react": "1.61.1",
     "@serenity-js/assertions": "^3.44.1",
     "@serenity-js/console-reporter": "^3.44.1",
