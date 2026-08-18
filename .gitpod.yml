@@ -22,17 +22,17 @@ tasks:
   - name: 'Serenity Reports'
     init: gp sync-await installation
     command: |
-      npx http-server -p 8080 target/site/serenity/
+      npx @serenity-js/html-reporter serve --dir ./reports/serenity-js --port 8080
 
   - name: 'Playwright Report'
     init: gp sync-await installation
     command: |
-      npx http-server -p 8181 playwright-report      
+      npx http-server -p 8181 reports/playwright      
 
   - name: 'Welcome'
     init: gp sync-await installation
     command: |
-      echo "To view Serenity Reports, visit:"
+      echo "To view Serenity/JS HTML Report, visit:"
       gp url 8080
       echo "To view Playwright Report, visit:"
       gp url 8181

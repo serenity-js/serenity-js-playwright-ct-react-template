@@ -6,7 +6,6 @@ node_modules/
 
 # Build artifacts
 /dist/
-/playwright-report/
 /playwright/.cache/
-/target/
+/reports/
 /test-results/
