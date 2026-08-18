@@ -8,18 +8,14 @@
 
   "forwardPorts": [
     6080,
-    8080,
-    8181
+    8080
   ],
   "portsAttributes": {
     "6080": {
       "label": "Desktop"
     },
     "8080": {
-      "label": "Serenity Reports"
-    },
-    "8181": {
-      "label": "Playwright Reports"
+      "label": "Serenity/JS HTML Report"
     }
   },
   "postCreateCommand": {
@@ -28,9 +24,7 @@
   },
   "waitFor": "postCreateCommand",
   "postAttachCommand": {
-    "Serenity/JS Test Run": "npm test",
-    "Serenity Reports Preview": "npx http-server -p 8080 target/site/serenity/",
-    "Playwright Reports Preview": "npx http-server -p 8181 playwright-report"
+    "Serenity/JS Test Run & Report": "npm test; npx @serenity-js/html-reporter serve --dir ./reports/serenity-js --port 8080"
   },
 
   "customizations": {

@@ -21,12 +21,11 @@ export default defineConfig<SerenityFixtures, SerenityWorkerFixtures>({
     /* Reporter to use. See https://playwright.dev/docs/test-reporters */
     reporter: [
         [ 'line' ],
-        [ 'html', { open: 'never' } ],
+        [ 'html', { open: 'never', outputFolder: './reports/playwright' } ],
         [ '@serenity-js/playwright-test', {
             crew: [
-                [ '@serenity-js/serenity-bdd', { specDirectory: './src' } ],
+                [ '@serenity-js/html-reporter', { specDirectory: './src', outputDirectory: './reports/serenity-js' } ],
                 '@serenity-js/console-reporter',
-                [ '@serenity-js/core:ArtifactArchiver', { outputDirectory: './target/site/serenity' } ],
                 // [ '@serenity-js/core:StreamReporter', { outputFile: './target/events.ndjson' }]
             ],
         } ],
