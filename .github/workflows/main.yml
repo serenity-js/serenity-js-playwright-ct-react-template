@@ -26,11 +26,11 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
-      - name: Restore previous report (preserves trend history)
+      - name: Restore previous reports (preserves trend history)
         uses: actions/checkout@v7
         with:
           ref: gh-pages
-          path: reports/serenity-js
+          path: reports
         continue-on-error: true
 
       - name: Run Playwright tests
@@ -52,10 +52,10 @@ jobs:
           path: reports/serenity-js
           retention-days: 30
 
-      - name: Deploy report to GitHub Pages
+      - name: Deploy reports to GitHub Pages
         if: always() && github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: reports/serenity-js
+          folder: reports
           clean: true
