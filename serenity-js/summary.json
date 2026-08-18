@@ -1,17 +1,17 @@
 {
   "$schema": "https://serenity-js.org/schemas/report-summary.json",
-  "generated": "2026-08-18T16:22:15.495Z",
+  "generated": "2026-08-18T16:25:46.308Z",
   "title": "Playwright",
   "schemaVersion": 1,
   "reportUrl": "./index.html",
   "ci": {
-    "commit": "f6a7f9600638bbf9d3b362ed5dab809e126f0af6",
+    "commit": "7f00a869256bac24636fd4104f970db91d88e458",
     "branch": "main",
-    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/32159762611"
+    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/32160100682"
   },
   "latestRun": {
-    "timestamp": "2026-08-18T16:21:49.299Z",
-    "label": "1578",
+    "timestamp": "2026-08-18T16:25:14.499Z",
+    "label": "1580",
     "totals": {
       "passed": 18,
       "failed": 0,
@@ -20,9 +20,17 @@
       "compromised": 0,
       "error": 0
     },
-    "duration": 26072
+    "duration": 31614
   },
-  "runs": 1,
+  "runs": 2,
+  "delta": {
+    "passed": 0,
+    "failed": 0,
+    "pending": 0,
+    "skipped": 0,
+    "compromised": 0,
+    "error": 0
+  },
   "failureClusters": [],
   "consistency": {
     "flaky": [],
@@ -40,27 +48,27 @@
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.tsx:97",
-      "duration": 3038
+      "duration": 4068
     },
     {
       "name": "goes back to showing the placeholder when all the selected options get deselected",
       "source": "components/Dropdown/Dropdown.spec.tsx:120",
-      "duration": 2714
+      "duration": 3590
     },
     {
       "name": "triggers onChange with selected options",
       "source": "components/Dropdown/Dropdown.spec.tsx:74",
-      "duration": 2119
+      "duration": 2867
     },
     {
       "name": "selects the desired options",
       "source": "components/Dropdown/Dropdown.spec.tsx:56",
-      "duration": 1927
+      "duration": 2634
     },
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.tsx:97",
-      "duration": 1476
+      "duration": 1689
     }
   ]
 }
