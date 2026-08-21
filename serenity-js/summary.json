@@ -1,17 +1,17 @@
 {
   "$schema": "https://serenity-js.org/schemas/report-summary.json",
-  "generated": "2026-08-20T12:44:48.156Z",
-  "title": "Playwright",
+  "generated": "2026-08-21T06:31:12.151Z",
+  "title": "@serenity-js/serenity-js-playwright-ct-react-template",
   "schemaVersion": 1,
   "reportUrl": "./index.html",
   "ci": {
-    "commit": "cf76a581301311ca42ed1daecc2bb65b2179700e",
+    "commit": "31ea31e3fa9bfd8067b3492fc38308cc9b07c312",
     "branch": "main",
-    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/32370285463"
+    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/32454592543"
   },
   "latestRun": {
-    "timestamp": "2026-08-20T12:44:15.977Z",
-    "label": "1591",
+    "timestamp": "2026-08-21T06:30:40.324Z",
+    "label": "1594",
     "totals": {
       "passed": 18,
       "failed": 0,
@@ -20,9 +20,9 @@
       "compromised": 0,
       "error": 0
     },
-    "duration": 31966
+    "duration": 31635
   },
-  "runs": 6,
+  "runs": 7,
   "delta": {
     "passed": 0,
     "failed": 0,
@@ -48,27 +48,27 @@
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.tsx:97",
-      "duration": 4125
+      "duration": 4371
     },
     {
       "name": "goes back to showing the placeholder when all the selected options get deselected",
       "source": "components/Dropdown/Dropdown.spec.tsx:120",
-      "duration": 3647
+      "duration": 3688
     },
     {
       "name": "triggers onChange with selected options",
       "source": "components/Dropdown/Dropdown.spec.tsx:74",
-      "duration": 2916
+      "duration": 3073
     },
     {
       "name": "selects the desired options",
       "source": "components/Dropdown/Dropdown.spec.tsx:56",
-      "duration": 2587
+      "duration": 2710
     },
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.tsx:97",
-      "duration": 1667
+      "duration": 1678
     }
   ]
 }
