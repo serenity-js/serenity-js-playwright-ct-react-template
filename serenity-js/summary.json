@@ -1,17 +1,17 @@
 {
   "$schema": "https://serenity-js.org/schemas/report-summary.json",
-  "generated": "2026-08-21T06:31:12.151Z",
+  "generated": "2026-08-25T20:03:39.062Z",
   "title": "@serenity-js/serenity-js-playwright-ct-react-template",
   "schemaVersion": 1,
   "reportUrl": "./index.html",
   "ci": {
-    "commit": "31ea31e3fa9bfd8067b3492fc38308cc9b07c312",
+    "commit": "fbd991ff7580307b3f5d00bebb0586a1765e6976",
     "branch": "main",
-    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/32454592543"
+    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/32892976710"
   },
   "latestRun": {
-    "timestamp": "2026-08-21T06:30:40.324Z",
-    "label": "1594",
+    "timestamp": "2026-08-25T20:03:07.083Z",
+    "label": "1599",
     "totals": {
       "passed": 18,
       "failed": 0,
@@ -20,9 +20,9 @@
       "compromised": 0,
       "error": 0
     },
-    "duration": 31635
+    "duration": 31759
   },
-  "runs": 7,
+  "runs": 8,
   "delta": {
     "passed": 0,
     "failed": 0,
@@ -48,27 +48,27 @@
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.tsx:97",
-      "duration": 4371
+      "duration": 4020
     },
     {
       "name": "goes back to showing the placeholder when all the selected options get deselected",
       "source": "components/Dropdown/Dropdown.spec.tsx:120",
-      "duration": 3688
+      "duration": 3560
     },
     {
       "name": "triggers onChange with selected options",
       "source": "components/Dropdown/Dropdown.spec.tsx:74",
-      "duration": 3073
+      "duration": 2897
     },
     {
       "name": "selects the desired options",
       "source": "components/Dropdown/Dropdown.spec.tsx:56",
-      "duration": 2710
+      "duration": 2608
     },
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.tsx:97",
-      "duration": 1678
+      "duration": 1639
     }
   ]
 }
