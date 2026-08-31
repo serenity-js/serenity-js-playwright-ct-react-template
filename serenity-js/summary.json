@@ -1,17 +1,17 @@
 {
   "$schema": "https://serenity-js.org/schemas/report-summary.json",
-  "generated": "2026-08-27T06:04:47.586Z",
+  "generated": "2026-08-31T04:42:14.424Z",
   "title": "@serenity-js/serenity-js-playwright-ct-react-template",
   "schemaVersion": 1,
   "reportUrl": "./index.html",
   "ci": {
-    "commit": "13203f7b28f7ee9712a6f1dcc4dbc2adc00c051b",
+    "commit": "648e6f52370fa7caa060cf065b9839353a574b81",
     "branch": "main",
-    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/33044489995"
+    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/33357905166"
   },
   "latestRun": {
-    "timestamp": "2026-08-27T06:04:20.483Z",
-    "label": "1604",
+    "timestamp": "2026-08-31T04:41:42.119Z",
+    "label": "1608",
     "totals": {
       "passed": 18,
       "failed": 0,
@@ -20,9 +20,9 @@
       "compromised": 0,
       "error": 0
     },
-    "duration": 26936
+    "duration": 32086
   },
-  "runs": 9,
+  "runs": 10,
   "delta": {
     "passed": 0,
     "failed": 0,
@@ -48,27 +48,27 @@
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.tsx:97",
-      "duration": 3361
+      "duration": 4147
     },
     {
       "name": "goes back to showing the placeholder when all the selected options get deselected",
       "source": "components/Dropdown/Dropdown.spec.tsx:120",
-      "duration": 2957
+      "duration": 3655
     },
     {
       "name": "triggers onChange with selected options",
       "source": "components/Dropdown/Dropdown.spec.tsx:74",
-      "duration": 2344
+      "duration": 2921
     },
     {
       "name": "selects the desired options",
       "source": "components/Dropdown/Dropdown.spec.tsx:56",
-      "duration": 2144
+      "duration": 2607
     },
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.tsx:97",
-      "duration": 1436
+      "duration": 1673
     }
   ]
 }
