@@ -1,17 +1,17 @@
 {
   "$schema": "https://serenity-js.org/schemas/report-summary.json",
-  "generated": "2026-08-31T22:10:43.301Z",
+  "generated": "2026-09-04T18:36:21.617Z",
   "title": "@serenity-js/serenity-js-playwright-ct-react-template",
   "schemaVersion": 1,
   "reportUrl": "./index.html",
   "ci": {
-    "commit": "a902158a774b7b9f26f10b81ba488e31acacbcf4",
+    "commit": "db12f52c4d13b641d106c320c17f64707bd64797",
     "branch": "main",
-    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/33444838132"
+    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/33906647278"
   },
   "latestRun": {
-    "timestamp": "2026-08-31T22:10:15.941Z",
-    "label": "1611",
+    "timestamp": "2026-09-04T18:35:49.249Z",
+    "label": "1615",
     "totals": {
       "passed": 18,
       "failed": 0,
@@ -20,9 +20,9 @@
       "compromised": 0,
       "error": 0
     },
-    "duration": 27149
+    "duration": 32135
   },
-  "runs": 11,
+  "runs": 12,
   "delta": {
     "passed": 0,
     "failed": 0,
@@ -48,27 +48,27 @@
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.tsx:97",
-      "duration": 3394
+      "duration": 4088
     },
     {
       "name": "goes back to showing the placeholder when all the selected options get deselected",
       "source": "components/Dropdown/Dropdown.spec.tsx:120",
-      "duration": 2926
+      "duration": 3556
     },
     {
       "name": "triggers onChange with selected options",
       "source": "components/Dropdown/Dropdown.spec.tsx:74",
-      "duration": 2347
+      "duration": 2928
     },
     {
       "name": "selects the desired options",
       "source": "components/Dropdown/Dropdown.spec.tsx:56",
-      "duration": 2213
+      "duration": 2618
     },
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.tsx:97",
-      "duration": 1521
+      "duration": 1691
     }
   ]
 }
