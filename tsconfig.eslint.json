@@ -3,8 +3,9 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "playwright/index.tsx",
-    "playwright-ct.config.ts"
+    "playwright/**/*.tsx",
+    "playwright.config.ts",
+    "vite.config.ts"
   ],
   "exclude": [
     "node_modules"
