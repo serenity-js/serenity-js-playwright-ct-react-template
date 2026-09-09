@@ -27,7 +27,7 @@ export default defineConfig<SerenityFixtures, SerenityWorkerFixtures>({
         [ 'html', { open: 'never', outputFolder: './reports/playwright' } ],
         [ '@serenity-js/playwright-test', {
             crew: [
-                [ '@serenity-js/html-reporter', { specDirectory: './src', outputDirectory: './reports/serenity-js' } ],
+                [ '@serenity-js/html-reporter', { specDirectory: './src', outputDirectory: './reports/serenity-js', historySize: 5 } ],
                 '@serenity-js/console-reporter',
                 // [ '@serenity-js/core:StreamReporter', { outputFile: './target/events.ndjson' }]
             ],
