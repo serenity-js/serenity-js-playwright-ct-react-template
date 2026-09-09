@@ -1,17 +1,17 @@
 {
   "$schema": "https://serenity-js.org/schemas/report-summary.json",
-  "generated": "2026-09-09T23:42:05.955Z",
+  "generated": "2026-09-09T23:53:02.246Z",
   "title": "@serenity-js/serenity-js-playwright-ct-react-template",
   "schemaVersion": 1,
   "reportUrl": "./index.html",
   "ci": {
-    "commit": "284afda3d633ae406303b69ffbeda359b2631e4a",
+    "commit": "78585af922709c2d971df66efbf811bee18ca065",
     "branch": "main",
-    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/34417940752"
+    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/34418735380"
   },
   "latestRun": {
-    "timestamp": "2026-09-09T23:41:29.508Z",
-    "label": "1646",
+    "timestamp": "2026-09-09T23:52:20.748Z",
+    "label": "1648",
     "totals": {
       "passed": 18,
       "failed": 0,
@@ -20,9 +20,9 @@
       "compromised": 0,
       "error": 0
     },
-    "duration": 36209
+    "duration": 41189
   },
-  "runs": 18,
+  "runs": 5,
   "delta": {
     "passed": 0,
     "failed": 0,
@@ -48,27 +48,27 @@
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:61",
-      "duration": 4006
+      "duration": 4759
     },
     {
       "name": "goes back to showing the placeholder when all the selected options get deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:71",
-      "duration": 3384
+      "duration": 4164
     },
     {
       "name": "selects the desired options",
       "source": "components/Dropdown/Dropdown.spec.ts:40",
-      "duration": 2540
+      "duration": 3094
     },
     {
       "name": "triggers onChange with selected options",
       "source": "components/Dropdown/Dropdown.spec.ts:49",
-      "duration": 2485
+      "duration": 2941
     },
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:61",
-      "duration": 2411
+      "duration": 2592
     }
   ]
 }
