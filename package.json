@@ -15,10 +15,6 @@
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js"
     },
-    "./serenity": {
-      "import": "./dist/esm/serenity.js",
-      "require": "./dist/cjs/serenity.js"
-    },
     "./dist/style.css": "./dist/style.css"
   },
   "scripts": {

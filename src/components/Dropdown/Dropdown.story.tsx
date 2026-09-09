@@ -2,16 +2,16 @@ import { useState } from 'react';
 
 import { Dropdown, type DropdownOption } from './Dropdown';
 
-export const Default = (props: { placeholder?: string; options?: DropdownOption[]; allowMultiple?: boolean }) =>
-    <Dropdown { ...props } />;
+export const Default = (properties: { placeholder?: string; options?: DropdownOption[]; allowMultiple?: boolean }) =>
+    <Dropdown { ...properties } />;
 
-export const WithOnChange = (props: { placeholder?: string; options?: DropdownOption[]; allowMultiple?: boolean }) => {
+export const WithOnChange = (properties: { placeholder?: string; options?: DropdownOption[]; allowMultiple?: boolean }) => {
     const [ selected, setSelected ] = useState('');
 
     return (
         <div>
             <Dropdown
-                { ...props }
+                { ...properties }
                 onChange={ (selectedOptions: DropdownOption[]) => {
                     setSelected(JSON.stringify(selectedOptions.map(o => o.label)));
                 } }

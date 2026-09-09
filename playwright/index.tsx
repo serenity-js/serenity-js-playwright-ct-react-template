@@ -14,10 +14,10 @@ async function resolve(storyId: string) {
     return module_?.[name] ?? module_?.default;
 }
 
-const rootElement = document.getElementById('root')!;
+const rootElement = document.querySelector('#root')!;
 let root: Root | undefined;
 
-(window as any).mount = async ({ story, props }: { story: string; props?: Record<string, any> }) => {
+(globalThis as any).mount = async ({ story, props }: { story: string; props?: Record<string, any> }) => {
     const Story = await resolve(story);
     if (! Story) {
         throw new Error(`Unknown story: ${ story }`);
@@ -26,7 +26,7 @@ let root: Root | undefined;
     flushSync(() => root!.render(<Story { ...props } />));
 };
 
-(window as any).unmount = async () => {
+(globalThis as any).unmount = async () => {
     root?.unmount();
     root = undefined;
 };
