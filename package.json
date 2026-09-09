@@ -29,7 +29,7 @@
     "build:js:cjs": "tsc --project tsconfig.build.json --outDir dist/cjs --module commonjs",
     "build:js:cjs-package": "node -e \"require('fs').writeFileSync('dist/cjs/package.json', '{ \\\"type\\\": \\\"commonjs\\\" }')\"",
     "build:css": "cpy 'src/**/*.css' dist",
-    "test": "playwright test -c playwright-ct.config.ts",
+    "test": "playwright test",
     "test:report": "npx @serenity-js/html-reporter serve --dir ./reports/serenity-js --open",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix"
@@ -69,18 +69,19 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
-    "@playwright/experimental-ct-react": "1.62.1",
-    "@serenity-js/assertions": "^3.46.1",
-    "@serenity-js/console-reporter": "^3.46.1",
-    "@serenity-js/core": "^3.46.0",
-    "@serenity-js/html-reporter": "^3.46.1",
-    "@serenity-js/playwright": "^3.46.1",
-    "@serenity-js/playwright-test": "^3.46.1",
-    "@serenity-js/rest": "^3.46.1",
-    "@serenity-js/web": "^3.46.1",
+    "@playwright/test": "1.63.0",
+    "@serenity-js/assertions": "^3.47.0",
+    "@serenity-js/console-reporter": "^3.47.0",
+    "@serenity-js/core": "^3.47.0",
+    "@serenity-js/html-reporter": "^3.47.0",
+    "@serenity-js/playwright": "^3.47.0",
+    "@serenity-js/playwright-test": "^3.47.0",
+    "@serenity-js/rest": "^3.47.0",
+    "@serenity-js/web": "^3.47.0",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@types/node": "^24.13.4",
     "@types/react": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
     "cpy-cli": "^7.0.0",
     "eslint": "^9.39.5",
     "eslint-plugin-import": "^2.32.0",
@@ -92,7 +93,8 @@
     "rimraf": "^6.1.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.70.0"
+    "typescript-eslint": "^8.70.0",
+    "vite": "^8.2.2"
   },
   "dependencies": {
     "clsx": "^2.1.1"
