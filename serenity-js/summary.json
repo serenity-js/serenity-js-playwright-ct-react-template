@@ -1,17 +1,17 @@
 {
   "$schema": "https://serenity-js.org/schemas/report-summary.json",
-  "generated": "2026-09-09T23:22:15.172Z",
+  "generated": "2026-09-09T23:42:05.955Z",
   "title": "@serenity-js/serenity-js-playwright-ct-react-template",
   "schemaVersion": 1,
   "reportUrl": "./index.html",
   "ci": {
-    "commit": "547a4e2a9d6b435fd5bb71dd85b08954e1ae3bd7",
+    "commit": "284afda3d633ae406303b69ffbeda359b2631e4a",
     "branch": "main",
-    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/34416472336"
+    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/34417940752"
   },
   "latestRun": {
-    "timestamp": "2026-09-09T23:21:33.712Z",
-    "label": "1642",
+    "timestamp": "2026-09-09T23:41:29.508Z",
+    "label": "1646",
     "totals": {
       "passed": 18,
       "failed": 0,
@@ -20,9 +20,9 @@
       "compromised": 0,
       "error": 0
     },
-    "duration": 41158
+    "duration": 36209
   },
-  "runs": 17,
+  "runs": 18,
   "delta": {
     "passed": 0,
     "failed": 0,
@@ -48,27 +48,27 @@
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:61",
-      "duration": 4879
+      "duration": 4006
     },
     {
       "name": "goes back to showing the placeholder when all the selected options get deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:71",
-      "duration": 4280
+      "duration": 3384
     },
     {
       "name": "selects the desired options",
       "source": "components/Dropdown/Dropdown.spec.ts:40",
-      "duration": 3090
+      "duration": 2540
     },
     {
       "name": "triggers onChange with selected options",
       "source": "components/Dropdown/Dropdown.spec.ts:49",
-      "duration": 3037
+      "duration": 2485
     },
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:61",
-      "duration": 2595
+      "duration": 2411
     }
   ]
 }
