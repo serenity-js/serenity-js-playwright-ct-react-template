@@ -1,17 +1,17 @@
 {
   "$schema": "https://serenity-js.org/schemas/report-summary.json",
-  "generated": "2026-10-06T10:26:38.532Z",
+  "generated": "2026-10-08T19:34:51.202Z",
   "title": "@serenity-js/serenity-js-playwright-ct-react-template",
   "schemaVersion": 1,
   "reportUrl": "./index.html",
   "ci": {
-    "commit": "3ce362b870fa9411c2d7eefbc182cf9a978aed67",
+    "commit": "63b72b1d3814c5fa21699f657acf080e8c8e1513",
     "branch": "main",
-    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/37449604622"
+    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/37832814285"
   },
   "latestRun": {
-    "timestamp": "2026-10-06T10:26:06.578Z",
-    "label": "1702",
+    "timestamp": "2026-10-08T19:34:18.340Z",
+    "label": "1707",
     "totals": {
       "passed": 18,
       "failed": 0,
@@ -20,7 +20,7 @@
       "compromised": 0,
       "error": 0
     },
-    "duration": 31756
+    "duration": 32642
   },
   "runs": 5,
   "delta": {
@@ -48,27 +48,27 @@
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:61",
-      "duration": 3424
+      "duration": 3599
     },
     {
       "name": "goes back to showing the placeholder when all the selected options get deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:71",
-      "duration": 2972
+      "duration": 3116
+    },
+    {
+      "name": "selects the desired options",
+      "source": "components/Dropdown/Dropdown.spec.ts:40",
+      "duration": 2345
     },
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:61",
-      "duration": 2337
-    },
-    {
-      "name": "allows for selected options to be deselected",
-      "source": "components/Dropdown/Dropdown.spec.ts:61",
-      "duration": 2204
+      "duration": 2343
     },
     {
       "name": "triggers onChange with selected options",
       "source": "components/Dropdown/Dropdown.spec.ts:49",
-      "duration": 2186
+      "duration": 2302
     }
   ]
 }
