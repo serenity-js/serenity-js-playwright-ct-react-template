@@ -1,17 +1,17 @@
 {
   "$schema": "https://serenity-js.org/schemas/report-summary.json",
-  "generated": "2026-10-14T18:11:46.400Z",
+  "generated": "2026-10-14T18:13:57.770Z",
   "title": "@serenity-js/serenity-js-playwright-ct-react-template",
   "schemaVersion": 1,
   "reportUrl": "./index.html",
   "ci": {
-    "commit": "28e8f0853f3e99c6c7826ec2516367b94629211d",
+    "commit": "855860244f195195beb44291838c69419bdc6b9c",
     "branch": "main",
-    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/38612790003"
+    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/38613166249"
   },
   "latestRun": {
-    "timestamp": "2026-10-14T18:11:09.394Z",
-    "label": "1725",
+    "timestamp": "2026-10-14T18:13:26.699Z",
+    "label": "1729",
     "totals": {
       "passed": 18,
       "failed": 0,
@@ -20,7 +20,7 @@
       "compromised": 0,
       "error": 0
     },
-    "duration": 36783
+    "duration": 30867
   },
   "runs": 5,
   "delta": {
@@ -48,27 +48,27 @@
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:61",
-      "duration": 4127
+      "duration": 3308
     },
     {
       "name": "goes back to showing the placeholder when all the selected options get deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:71",
-      "duration": 3535
-    },
-    {
-      "name": "selects the desired options",
-      "source": "components/Dropdown/Dropdown.spec.ts:40",
-      "duration": 2653
-    },
-    {
-      "name": "triggers onChange with selected options",
-      "source": "components/Dropdown/Dropdown.spec.ts:49",
-      "duration": 2629
+      "duration": 2788
     },
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:61",
-      "duration": 2483
+      "duration": 2241
+    },
+    {
+      "name": "selects the desired options",
+      "source": "components/Dropdown/Dropdown.spec.ts:40",
+      "duration": 2180
+    },
+    {
+      "name": "triggers onChange with selected options",
+      "source": "components/Dropdown/Dropdown.spec.ts:49",
+      "duration": 2146
     }
   ]
 }
