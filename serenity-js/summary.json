@@ -1,17 +1,17 @@
 {
   "$schema": "https://serenity-js.org/schemas/report-summary.json",
-  "generated": "2026-10-15T10:05:41.333Z",
+  "generated": "2026-10-20T21:51:39.516Z",
   "title": "@serenity-js/serenity-js-playwright-ct-react-template",
   "schemaVersion": 1,
   "reportUrl": "./index.html",
   "ci": {
-    "commit": "3acf1c807e6ace59a6e9ed82b5a656463bb7898d",
+    "commit": "d396c743d09aea8fe65606964c62ad0ab5d293a5",
     "branch": "main",
-    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/38717512127"
+    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/39503478860"
   },
   "latestRun": {
-    "timestamp": "2026-10-15T10:05:00.052Z",
-    "label": "1735",
+    "timestamp": "2026-10-20T21:51:03.316Z",
+    "label": "1740",
     "totals": {
       "passed": 18,
       "failed": 0,
@@ -20,7 +20,7 @@
       "compromised": 0,
       "error": 0
     },
-    "duration": 40990
+    "duration": 35944
   },
   "runs": 5,
   "delta": {
@@ -48,27 +48,27 @@
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:61",
-      "duration": 4802
+      "duration": 3925
     },
     {
       "name": "goes back to showing the placeholder when all the selected options get deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:71",
-      "duration": 4211
+      "duration": 3389
     },
     {
       "name": "selects the desired options",
       "source": "components/Dropdown/Dropdown.spec.ts:40",
-      "duration": 3117
+      "duration": 2507
     },
     {
       "name": "triggers onChange with selected options",
       "source": "components/Dropdown/Dropdown.spec.ts:49",
-      "duration": 3016
+      "duration": 2456
     },
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:61",
-      "duration": 2570
+      "duration": 2329
     }
   ]
 }
