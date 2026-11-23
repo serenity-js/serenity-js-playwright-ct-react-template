@@ -1,17 +1,17 @@
 {
   "$schema": "https://serenity-js.org/schemas/report-summary.json",
-  "generated": "2026-11-17T08:07:45.177Z",
+  "generated": "2026-11-23T02:53:05.165Z",
   "title": "@serenity-js/serenity-js-playwright-ct-react-template",
   "schemaVersion": 1,
   "reportUrl": "./index.html",
   "ci": {
-    "commit": "8671654c9b012677978bbe89a85187590c818015",
+    "commit": "b058a476c32515e7c52860b617b341d762ec8835",
     "branch": "main",
-    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/44043821190"
+    "jobUrl": "https://github.com/serenity-js/serenity-js-playwright-ct-react-template/actions/runs/45102574825"
   },
   "latestRun": {
-    "timestamp": "2026-11-17T08:07:09.283Z",
-    "label": "1816",
+    "timestamp": "2026-11-23T02:52:32.579Z",
+    "label": "1824",
     "totals": {
       "passed": 18,
       "failed": 0,
@@ -20,7 +20,7 @@
       "compromised": 0,
       "error": 0
     },
-    "duration": 35629
+    "duration": 32393
   },
   "runs": 5,
   "delta": {
@@ -48,27 +48,27 @@
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:61",
-      "duration": 3981
+      "duration": 3574
     },
     {
       "name": "goes back to showing the placeholder when all the selected options get deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:71",
-      "duration": 3454
+      "duration": 3100
     },
     {
       "name": "selects the desired options",
       "source": "components/Dropdown/Dropdown.spec.ts:40",
-      "duration": 2536
-    },
-    {
-      "name": "triggers onChange with selected options",
-      "source": "components/Dropdown/Dropdown.spec.ts:49",
-      "duration": 2525
+      "duration": 2320
     },
     {
       "name": "allows for selected options to be deselected",
       "source": "components/Dropdown/Dropdown.spec.ts:61",
-      "duration": 2323
+      "duration": 2299
+    },
+    {
+      "name": "triggers onChange with selected options",
+      "source": "components/Dropdown/Dropdown.spec.ts:49",
+      "duration": 2252
     }
   ]
 }
