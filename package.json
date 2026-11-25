@@ -78,7 +78,7 @@
     "@serenity-js/playwright-test": "^3.49.1",
     "@serenity-js/rest": "^3.49.1",
     "@serenity-js/web": "^3.49.1",
-    "@stylistic/eslint-plugin": "^5.10.0",
+    "@stylistic/eslint-plugin": "^6.0.1",
     "@types/node": "^24.19.4",
     "@types/react": "^19.3.1",
     "@vitejs/plugin-react": "^6.3.0",
